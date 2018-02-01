@@ -1,10 +1,12 @@
 ---
-title: "Connecting Dyndoc to Rmarkdown
+title: "Connecting Dyndoc to Rmarkdown"
 author: "Josh Errickson"
 date: "`r Sys.Date()`"
-output:
-  html_document:
+output: 
+   html_document:
     toc: yes
+    toc_depth: 4
+    toc_float: yes
 ---
 
 # Preface
@@ -12,5 +14,5 @@ output:
 This document is all in Rmarkdown.
 
 ```{r}
-version()
+version
 ```
