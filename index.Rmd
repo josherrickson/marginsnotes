@@ -2,7 +2,7 @@
 title: "Connecting Dyndoc to Rmarkdown"
 author: "Josh Errickson"
 date: "`r Sys.Date()`"
-output: 
+output:
    html_document:
     toc: yes
     toc_depth: 4
@@ -11,8 +11,22 @@ output:
 
 # Preface
 
-This document is all in Rmarkdown.
+This file should contain introductory material.
+
+It can also include R:
 
 ```{r}
-version
+x <- rnorm(10)
+plot(x)
+```
+
+To include additional files, include chunks such as^[To get Rmarkdown to not evaluate this, there is a zero-width space inside the triple tick. Remove it to
+get it to work.]
+
+
+    `​``{r child = "file.Rmd"}
+    ```
+
+
+```{r child = 'dyndoc_ex.Rmd'}
 ```
