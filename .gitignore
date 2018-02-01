@@ -1,0 +1,4 @@
+*.log
+*.svg
+_*.Rmd
+dyndoc_ex.Rmd
