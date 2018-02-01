@@ -28,5 +28,5 @@ get it to work.]
     ```
 
 
-```{r child = 'dyndoc_ex.Rmd'}
+```{r child = 'stata.Rmd'}
 ```
