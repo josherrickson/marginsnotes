@@ -1,6 +1,5 @@
 library(stringr)
-files <- dir(pattern = "^[0-9]")
-
+files <- dir(pattern = "^[^Index]*.Rmd$")
 
 for (f in files) {
   text <- readLines(f)
