@@ -6,3 +6,21 @@ surrounding them with `^`), then use a script to fix it up.
 
 - Sections. For section headers, instead of `^#^`, `^#^^#^`, etc, we use `\^\#\^`, `\^\#\#\^`.
 - Equations. For inline equations (`\$`) or full-line equations (`\$\$`), instead use `\^\$\^` and `\^​\$\$\^`.
+
+We can include Stata code easily
+
+~~~~
+<<dd_do>>
+sysuse auto
+<</dd_do>>
+~~~~
+
+Plots require one extra line.
+
+~~~~
+<<dd_do>>
+twoway scatter mpg trunk
+<</dd_do>>
+~~~~
+
+<<dd_graph: replace>>
