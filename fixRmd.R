@@ -4,7 +4,6 @@ files <- dir("stata_markdown",
              full.names = TRUE)
 
 for (f in files) {
-  print(paste("Fixing", f))
   text <- readLines(f)
 
   # Fix section headers
