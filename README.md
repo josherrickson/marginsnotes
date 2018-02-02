@@ -9,8 +9,8 @@ my Stata workshop notes ([1](https://github.com/josherrickson/stata1) or [2](htt
 Create any Rmarkdown files that you want in the main directory. Create any Stata markdown files (with extension .md) that you want inside the
 "stata_markdown" folder. There are a few modifications to Markdown tags:
 
-- Sections. For section headers, instead of #, ##, etc, we use ^#^, ^##^.
-- Equations. For inline equations (\$) or full-line equations (\$\$), instead use ^\$^ and ^\$\$^.
+- Sections. For section headers, instead of `#`, `##`, etc, we use `^#^`, `^##^`.
+- Equations. For inline equations (`$`) or full-line equations (`$$`), instead use `^$^` and `^$$^`.
 
 Files:
 
