@@ -6,23 +6,33 @@ Stata_Ready=$(md2:.md=.Rmd)
 stata_markdown/%.Rmd: stata_markdown/%.md
 	@echo "$< -> $@"
 	@/Applications/Stata/StataSE.app/Contents/MacOS/stata-se -b 'dyndoc "$<", saving("$@") replace nostop'
-	@Rscript --vanilla fixRmd.R $@
-	@find . -type f -name '*.Rmd' | xargs sed -i '' 's|href="|target="_blank" href="|g'
+# Convert ^#^ to #
+	@sed -i '' 's.\^#\^.#.g' $@
+# Convert ^$^ to $ and ^$$^ to $$
+	@sed -i '' 's.\^$$^.$$.g' $@
+	@sed -i '' 's.\^$$$$\^.$$$$.g' $@
+# Remove <p>
+	@sed -E -i '' 's.\<\/?p\>..g' $@
+# This line makes all links open in new windows.
+	@sed -i '' 's|href="|target="_blank" href="|g' $@
 
 index.html: index.Rmd $(Stata_Rmd)
 	@echo "$< -> $@"
-	@cp stata_markdown/*.Rmd .
+#	Get a list of Rmd files; we'll be temporarily copying them to the main directory
+	@$(eval TMPPATH := $(shell find stata_markdown -name "*.Rmd"))
+	@$(eval TMP := $(shell find stata_markdown -name "*.Rmd" | sed 's.stata_markdown/..'))
+	@cp $(TMPPATH) .
+# All images get copied too
 	@cp stata_markdown/*.svg .
 	@Rscript -e "rmarkdown::render('$<')"
-	@find . -name '*.Rmd' -maxdepth 1 | grep -v "index" | xargs rm
+#	Remove any files copies up
+	@rm -rf $(TMP)
 	@rm -rf *.svg
 
 default: $(Stata_Rmd)  index.Rmd
 
 clean:
 	@git clean -xdf
-
-fresh: clean default
 
 open:
 	@open index.html
