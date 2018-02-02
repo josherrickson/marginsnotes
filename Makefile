@@ -29,7 +29,7 @@ index.html: index.Rmd $(Stata_Rmd)
 	@rm -rf $(TMP)
 	@rm -rf *.svg
 
-default: $(Stata_Rmd)  index.Rmd
+default: $(Stata_Rmd)  index.html
 
 clean:
 	@git clean -xdf
