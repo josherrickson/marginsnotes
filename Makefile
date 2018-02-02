@@ -1,14 +1,22 @@
-default: stata fixRmd Rmarkdown
+md=$(shell find stata_markdown -name "*.md")
+Stata_Rmd=$(md:.md=.Rmd)
+md2=$(shell find stata_markdown -name "*.md" | sed 's.stata_markdown/..')
+Stata_Ready=$(md2:.md=.Rmd)
 
-stata:
-	/Applications/Stata/StataSE.app/Contents/MacOS/stata-se -b do build-stata.do
+stata_markdown/%.Rmd: stata_markdown/%.md
+	echo "$< -> $@"
+	/Applications/Stata/StataSE.app/Contents/MacOS/stata-se -b 'dyndoc "$<", saving("$@") replace nostop'
+	echo "$@ -> $@"
+	Rscript --vanilla fixRmd.R $@
+	find . -type f -name '*.Rmd' | xargs sed -i '' 's|href="|target="_blank" href="|g'
 
-fixRmd:
-	R -q -f fixRmd.R
-	find . -type f -name '0*.Rmd' | xargs sed -i '' 's|href="|target="_blank" href="|g'
+index.html: index.Rmd $(Stata_Rmd)
+	echo "$< -> $@"
+	mv stata_markdown/*.Rmd .
+	mv stata_markdown/*.svg .
+	Rscript -e "rmarkdown::render('$<')"
 
-Rmarkdown:
-	Rscript -e "rmarkdown::render('index.Rmd')"
+default: $(Stata_Rmd)  index.Rmd
 
 clean:
 	@git clean -xdf
