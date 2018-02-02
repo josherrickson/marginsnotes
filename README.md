@@ -12,12 +12,20 @@ Create any Rmarkdown files that you want in the main directory. Create any Stata
 - Sections. For section headers, instead of `#`, `##`, etc, we use `^#^`, `^##^`.
 - Equations. For inline equations (`$`) or full-line equations (`$$`), instead use `^$^` and `^$$^`.
 
+Don't forget to include subfiles inside index.Rmd:
+
+
+    `​``{r child = "file.Rmd"}
+    ```
+
+
+
 Files:
 
 - "index.Rmd" - This file contains all the RMarkdown front-matter, some introductory text, and calls to include all other files.
 - "stata_markdown/*.md" - Any Stata markdown files in here will be processed by Stata and the corresponding Rmd file built in the main directory.
 - "Makefile" - The Makefile to build this.
-    - `make` - Compiles all Stata dyndoc files,
+    - `make` - Compiles all Stata dyndoc files, makes the necessary clean-ups, and then builds the complete
     - `make clean` - Removes any temporary and output files.
     - `make stata_markdown/___.Rmd` - Will compile a specific .md file into a .Rmd file with all cleaning. Useful for debugging. Called if needed during `make`.
     - `make index.html` - Compiles just the index.Rmd into an html. Useful for debugging. Called if needed during `make`.
