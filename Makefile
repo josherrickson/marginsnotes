@@ -6,13 +6,13 @@ Stata_Ready=$(md2:.md=.Rmd)
 stata_markdown/%.Rmd: stata_markdown/%.md
 	@echo "$< -> $@"
 	@/Applications/Stata/StataSE.app/Contents/MacOS/stata-se -b 'dyndoc "$<", saving("$@") replace nostop'
+# Remove <p> at the front of sections
+	@sed -E -i '' '/^\<p\>\^#/s/\<\/?p\>//g' $@
 # Convert ^#^ to #
 	@sed -i '' 's.\^#\^.#.g' $@
 # Convert ^$^ to $ and ^$$^ to $$
 	@sed -i '' 's.\^$$^.$$.g' $@
 	@sed -i '' 's.\^$$$$\^.$$$$.g' $@
-# Remove <p>
-	@sed -E -i '' 's.\<\/?p\>..g' $@
 # This line makes all links open in new windows.
 	@sed -i '' 's|href="|target="_blank" href="|g' $@
 
