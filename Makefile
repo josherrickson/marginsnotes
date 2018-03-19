@@ -23,7 +23,7 @@ index.html: index.Rmd $(Stata_Rmd)
 	@$(eval TMP := $(shell find stata_markdown -name "*.Rmd" | sed 's.stata_markdown/..'))
 	@cp $(TMPPATH) .
 # All images get copied too
-	@cp stata_markdown/*.svg .
+	@cp stata_markdown/*.svg . 2>/dev/null || :
 	@Rscript -e "rmarkdown::render('$<')"
 #	Remove any files copies up
 	@rm -rf $(TMP)
