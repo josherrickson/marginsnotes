@@ -8,6 +8,8 @@ stata_markdown/%.Rmd: stata_markdown/%.md
 	@/Applications/Stata/StataSE.app/Contents/MacOS/stata-se -b 'dyndoc "$<", saving("$@") replace nostop'
 # Remove <p> at the front of sections
 	@sed -E -i '' '/^\<p\>\^#/s/\<\/?p\>//g' $@
+# Using <<dd_do: quiet>> produces empty codeblocks in output, remove them
+	@sed -E -i '' '/\<pre\>\<code\>\<\/code\>\<\/pre\>/d' $@
 # Convert ^#^ to #
 	@sed -i '' 's.\^#\^.#.g' $@
 # Convert ^$^ to $ and ^$$^ to $$
