@@ -138,15 +138,15 @@ Column {.tabset data-width=680}
 
 ### Stata
 
-```{r child = 'categorical_interactions.Rmd'}
+```{r child = 'categorical_interaction.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/categorical_interactions.Rmd'}
+```{r child = 'R_markdown/categorical_interaction.Rmd'}
 ```
 
-# Interactions with Categorical Variables {data-navmenu="Marginal Means"}
+# Categorical and Continuous Variables {data-navmenu="Marginal Means"}
 
 Column {.tabset}
 -------------------------------------
@@ -168,4 +168,47 @@ Column {.tabset data-width=680}
 ### R
 
 ```{r child = 'R_markdown/categorical_and_continuous.Rmd'}
+```
+
+# Categorical and Continuous Interactions {data-navmenu="Marginal Means"}
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+If there is an interaction between a categorical and continuous variable, the code is the same.
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'categorical_continuous_interaction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/categorical_continuous_interaction.Rmd'}
+```
+
+# No Interactions {data-navmenu="Marginal Slopes"}
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'slopes_no_interaction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/slopes_no_interaction.Rmd'}
 ```
