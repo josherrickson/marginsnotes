@@ -145,3 +145,27 @@ Column {.tabset data-width=680}
 
 ```{r child = 'R_markdown/categorical_interactions.Rmd'}
 ```
+
+# Interactions with Categorical Variables {data-navmenu="Marginal Means"}
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+When there are additional continuous variables in the model, we may
+wish to obtain the marginal mean at specified levels of the continuous
+variable.
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'categorical_and_continuous.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/categorical_and_continuous.Rmd'}
+```
