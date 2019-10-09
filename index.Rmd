@@ -13,20 +13,13 @@ output:
 
 This file should contain introductory material.
 
-It can also include R:
 
-```{r}
-x <- rnorm(10)
-plot(x)
+# Tab test {.tabset}
+
+## Stata
+```{r child = 'stata.Rmd'}
 ```
 
-To include additional files, include chunks such as^[To get Rmarkdown to not evaluate this, there is a zero-width space inside the triple tick. Remove it to
-get it to work.]
-
-
-    `​``{r child = "file.Rmd"}
-    ```
-
-
-```{r child = 'stata.Rmd'}
+## R
+```{r child = 'R_markdown/R.Rmd'}
 ```
