@@ -1,6 +1,6 @@
 *.log
 *.svg
 _*.Rmd
-stata.Rmd
+stata_markdown/*.Rmd
 *.html
 .DS_Store

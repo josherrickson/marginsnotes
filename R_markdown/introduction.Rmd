@@ -1,0 +1,11 @@
+We'll load the data from Stata's website via the `haven` package. We'll also convert to standard R data.frame and factors.
+
+
+```{r, echo = TRUE}
+library(haven)
+m <- haven::read_dta("http://www.stata-press.com/data/r15/margex.dta")
+m <- data.frame(m)
+m$sex <- as_factor(m$sex)
+m$group <- as_factor(m$group)
+head(m)
+```

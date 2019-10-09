@@ -1,25 +1,101 @@
 ---
-title: "Connecting Dyndoc to Rmarkdown"
-author: "Josh Errickson"
-date: "`r Sys.Date()`"
+title: "Marginal Effects"
 output:
-   html_document:
-    toc: yes
-    toc_depth: 4
-    toc_float: yes
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-# Preface
+# Introduction
 
-This file should contain introductory material.
+Column
+-------------------------------------
+
+### Discussion
+
+Insert discussion.
+
+We'll use the `margex` data set from Stata. See the tabs on the right
+for the necessary syntax and code to load the data.
+
+Column {.tabset}
+-------------------------------------
+
+### Stata
+
+```{r child = 'introduction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/introduction.Rmd'}
+```
+
+# Categorical Variables {data-navmenu="Marginal Means"}
+
+Column
+-------------------------------------
+
+### Discussion
+
+When we have a single categorical variable (not involved in an
+interaction), one level is excluded as a reference or baseline
+category, and the coefficients on the other levels represent the
+average difference between those levels and the reference.
+
+Assume a linear regression set up with a single categorical variable,
+\(G\), with three groups. We fit
+
+\[
+  E(Y|G) = \beta_0 + \beta_1g_2 + \beta_2g_3,
+\]
+
+where \(g_2\) and \(g_3\) are dummy variables representing membership
+in groups 2 and 3 respectively (\(g_{2i} = 1\) if observation \(i\)
+has \(G = 2\), and equal to 0 otherwise.) Since \(g_1\) is not found
+in the model, it is the reference category.
+
+Therefore, \(\beta_0\) represents the average response among the
+reference category \(G = 1\). \(\beta_1\) represents the difference in
+the average response between groups \(G = 1\) and \(G =
+2\). Therefore, \(\beta_0 + \beta_1\) is the average response in group
+\(G = 2\). A similar argument can be made about \(\beta_2\) and group
+3.
 
 
-# Tab test {.tabset}
+Column {.tabset data-width=640}
+-------------------------------------
 
-## Stata
+### Stata
+
+```{r child = 'categorical.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/categorical.Rmd'}
+```
+
+
+# Interactions with Categorical Variables {data-navmenu="Marginal Means"}
+
+
+Column
+-------------------------------------
+
+### Discussion
+
+Discussion
+
+Column {.tabset}
+-------------------------------------
+
+### Stata
+
 ```{r child = 'stata.Rmd'}
 ```
 
-## R
+### R
+
 ```{r child = 'R_markdown/R.Rmd'}
 ```
