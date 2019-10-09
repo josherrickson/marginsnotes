@@ -1,0 +1,6 @@
+
+```{r}
+library(interactions)
+summary(mod1 <- lm(y ~ sex*age, data = m))
+interactions::interact_plot(mod1, pred = age, modx = sex, interval = TRUE)
+```

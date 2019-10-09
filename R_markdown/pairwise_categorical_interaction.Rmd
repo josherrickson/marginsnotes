@@ -1,0 +1,6 @@
+**To do: All pairwise comparisons**
+
+```{r}
+summary(mod1 <- lm(y ~ group*sex, data = m))
+emmeans::contrast(emmeans::emmeans(mod1, ~ sex | group), "pairwise")
+```

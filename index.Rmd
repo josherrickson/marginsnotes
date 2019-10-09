@@ -212,3 +212,88 @@ Column {.tabset data-width=680}
 
 ```{r child = 'R_markdown/slopes_no_interaction.Rmd'}
 ```
+
+# Interactions {data-navmenu="Marginal Slopes"}
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'slopes_interaction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/slopes_interaction.Rmd'}
+```
+
+
+# Categorical Variables {data-navmenu="Pairwise Comparisons"}
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'pairwise_categorical.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/pairwise_categorical.Rmd'}
+```
+
+# Categorical Interactions {data-navmenu="Pairwise Comparisons"}
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'pairwise_categorical_interaction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/pairwise_categorical_interaction.Rmd'}
+```
+
+# Plotting
+
+Column {.tabset}
+-------------------------------------
+
+### Discussion
+
+
+Column {.tabset data-width=680}
+-------------------------------------
+
+### Stata
+
+```{r child = 'plotting.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/plotting.Rmd'}
+```
