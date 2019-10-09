@@ -36,5 +36,7 @@ default: $(Stata_Rmd)  index.html
 clean:
 	@git clean -xdf
 
+fresh: clean default
+
 open:
 	@open index.html
