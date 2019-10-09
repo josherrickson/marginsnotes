@@ -4,7 +4,13 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    css: style.css
 ---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # Introduction
 
@@ -33,7 +39,7 @@ Column {.tabset}
 
 # Categorical Variables {data-navmenu="Marginal Means"}
 
-Column
+Column {.tabset}
 -------------------------------------
 
 ### Discussion
@@ -42,6 +48,8 @@ When we have a single categorical variable (not involved in an
 interaction), one level is excluded as a reference or baseline
 category, and the coefficients on the other levels represent the
 average difference between those levels and the reference.
+
+### Math
 
 Assume a linear regression set up with a single categorical variable,
 \(G\), with three groups. We fit
@@ -63,7 +71,7 @@ the average response between groups \(G = 1\) and \(G =
 3.
 
 
-Column {.tabset data-width=640}
+Column {.tabset data-width=680}
 -------------------------------------
 
 ### Stata
@@ -80,22 +88,60 @@ Column {.tabset data-width=640}
 # Interactions with Categorical Variables {data-navmenu="Marginal Means"}
 
 
-Column
+Column {.tabset}
 -------------------------------------
 
 ### Discussion
 
-Discussion
+When we have an interaction of categorical variables, we can estimate
+the marginal mean in each combination of levels from the two
+categorical variables.
 
-Column {.tabset}
+Alternatively,
+
+**To do: `atmeans` versus as observed - I believe `emmeans` default is
+  `atmeans` while Stata's is as observed.**
+
+### Math
+
+
+Consider the simplest case, with two binary variables \(Z\) and
+\(K\). We fit the model
+
+\[
+  E(Y|Z,K) = \beta_0 + \beta_1Z + \beta_2K + \beta_3ZK,
+\]
+
+where \(ZK = 0\) only if both \(Z = 1\) and \(K = 1\).
+
+This is functionally equivalent to defining a new variable \(L\),
+
+\[
+  L = \begin{cases}
+  0, & K = 0 \& Z = 0 \\
+  1, & K = 0 \& Z = 1 \\
+  2, & K = 1 \& Z = 0 \\
+  3, & K = 1 \& Z = 1,
+  \end{cases}
+\]
+
+and fitting the model
+
+\[
+  E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
+\]
+
+
+
+Column {.tabset data-width=680}
 -------------------------------------
 
 ### Stata
 
-```{r child = 'stata.Rmd'}
+```{r child = 'categorical_interactions.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/R.Rmd'}
+```{r child = 'R_markdown/categorical_interactions.Rmd'}
 ```

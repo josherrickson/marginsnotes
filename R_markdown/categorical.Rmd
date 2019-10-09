@@ -1,4 +1,4 @@
-```{r, echo = TRUE}
+```{r}
 summary(mod1 <- lm(y ~ group, data = m))
 emmeans::emmeans(mod1, ~ group)
 ```

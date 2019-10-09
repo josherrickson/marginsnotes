@@ -1,7 +1,7 @@
 We'll load the data from Stata's website via the `haven` package. We'll also convert to standard R data.frame and factors.
 
 
-```{r, echo = TRUE}
+```{r}
 library(haven)
 m <- haven::read_dta("http://www.stata-press.com/data/r15/margex.dta")
 m <- data.frame(m)
