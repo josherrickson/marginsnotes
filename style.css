@@ -1,3 +1,6 @@
 .chart-wrapper .chart-stage {
     overflow: scroll;
 }
+.image-container {
+    position: static;
+}
