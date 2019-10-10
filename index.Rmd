@@ -81,7 +81,7 @@ Sidebar {.sidebar}
 
 ### Data
 
-For all examples, we'll use the `margex` data set from Stata. This
+For all examples, we'll use the "margex" data set from Stata. This
 data set was designed for examples using `margins` and contains a nice
 mix of continuous and categorical variables.
 
@@ -99,7 +99,7 @@ In R, we'll need to load several libraries.
 
 - `emmeans` - The primary package used to estimate marginal effects.
 - `interactions` - Used for visualization.
-- `haven` - Used to read the `margex` data from Stata into R.
+- `haven` - Used to read the "margex" data from Stata into R.
 
 
 Code {.tabset}
