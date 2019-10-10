@@ -5,6 +5,8 @@ output:
     orientation: columns
     vertical_layout: fill
     css: style.css
+    theme: paper
+    source_code: "https://github.com/josherrickson/marginsnotes"
 ---
 
 
