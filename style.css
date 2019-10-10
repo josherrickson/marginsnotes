@@ -1,6 +1,15 @@
+/* Allow scrolling panes */
 .chart-wrapper .chart-stage {
     overflow: scroll;
 }
+/* Proper image placement */
 .image-container {
     position: static;
+}
+/* Enlarge sidebar */
+.section.sidebar {
+    width: 400px !important
+}
+.dashboard-column-orientation {
+    padding-left: 400px !important
 }

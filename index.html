@@ -896,11 +896,20 @@ html, body {
 </style>
 
 
-<style type="text/css">.chart-wrapper .chart-stage {
+<style type="text/css">
+.chart-wrapper .chart-stage {
 overflow: scroll;
 }
+
 .image-container {
 position: static;
+}
+
+.section.sidebar {
+width: 400px !important
+}
+.dashboard-column-orientation {
+padding-left: 400px !important
 }
 </style>
 
@@ -2706,16 +2715,15 @@ window.FlexDashboardComponents.push({
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<div id="column" class="section level2">
-<h2>Column</h2>
-<div id="discussion" class="section level3">
-<h3>Discussion</h3>
-<p>Insert discussion.</p>
+<div id="sidebar" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="introduction-1" class="section level3">
+<h3>Introduction</h3>
 <p>We’ll use the <code>margex</code> data set from Stata. See the tabs on the right for the necessary syntax and code to load the data.</p>
 </div>
 </div>
-<div id="column-1" class="section level2 tabset">
-<h2>Column</h2>
+<div id="code" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata" class="section level3">
 <h3>Stata</h3>
 <p>
@@ -2766,24 +2774,15 @@ The <a target="_blank" href="https://www.stata.com/manuals/dwebuse.pdf"><code>we
 </div>
 <div id="categorical-variables" class="section level1" data-navmenu="Marginal Means">
 <h1>Categorical Variables</h1>
-<div id="column-2" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-1" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-1" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="categorical-variables-1" class="section level3">
+<h3>Categorical Variables</h3>
 <p>When we have a single categorical variable (not involved in an interaction), one level is excluded as a reference or baseline category, and the coefficients on the other levels represent the average difference between those levels and the reference.</p>
 </div>
-<div id="math" class="section level3">
-<h3>Math</h3>
-<p>Assume a linear regression set up with a single categorical variable, <span class="math inline">\(G\)</span>, with three groups. We fit</p>
-<p><span class="math display">\[
-  E(Y|G) = \beta_0 + \beta_1g_2 + \beta_2g_3,
-\]</span></p>
-<p>where <span class="math inline">\(g_2\)</span> and <span class="math inline">\(g_3\)</span> are dummy variables representing membership in groups 2 and 3 respectively (<span class="math inline">\(g_{2i} = 1\)</span> if observation <span class="math inline">\(i\)</span> has <span class="math inline">\(G = 2\)</span>, and equal to 0 otherwise.) Since <span class="math inline">\(g_1\)</span> is not found in the model, it is the reference category.</p>
-<p>Therefore, <span class="math inline">\(\beta_0\)</span> represents the average response among the reference category <span class="math inline">\(G = 1\)</span>. <span class="math inline">\(\beta_1\)</span> represents the difference in the average response between groups <span class="math inline">\(G = 1\)</span> and <span class="math inline">\(G = 2\)</span>. Therefore, <span class="math inline">\(\beta_0 + \beta_1\)</span> is the average response in group <span class="math inline">\(G = 2\)</span>. A similar argument can be made about <span class="math inline">\(\beta_2\)</span> and group 3.</p>
 </div>
-</div>
-<div id="column-3" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-1" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-1" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.group
@@ -2857,42 +2856,30 @@ F-statistic: 15.48 on 2 and 2997 DF,  p-value: 2.045e-07</code></pre>
 
 Confidence level used: 0.95 </code></pre>
 </div>
+<div id="math" class="section level3">
+<h3>Math</h3>
+<p>Assume a linear regression set up with a single categorical variable, <span class="math inline">\(G\)</span>, with three groups. We fit</p>
+<p><span class="math display">\[
+  E(Y|G) = \beta_0 + \beta_1g_2 + \beta_2g_3,
+\]</span></p>
+<p>where <span class="math inline">\(g_2\)</span> and <span class="math inline">\(g_3\)</span> are dummy variables representing membership in groups 2 and 3 respectively (<span class="math inline">\(g_{2i} = 1\)</span> if observation <span class="math inline">\(i\)</span> has <span class="math inline">\(G = 2\)</span>, and equal to 0 otherwise.) Since <span class="math inline">\(g_1\)</span> is not found in the model, it is the reference category.</p>
+<p>Therefore, <span class="math inline">\(\beta_0\)</span> represents the average response among the reference category <span class="math inline">\(G = 1\)</span>. <span class="math inline">\(\beta_1\)</span> represents the difference in the average response between groups <span class="math inline">\(G = 1\)</span> and <span class="math inline">\(G = 2\)</span>. Therefore, <span class="math inline">\(\beta_0 + \beta_1\)</span> is the average response in group <span class="math inline">\(G = 2\)</span>. A similar argument can be made about <span class="math inline">\(\beta_2\)</span> and group 3.</p>
+</div>
 </div>
 </div>
 <div id="interactions-with-categorical-variables" class="section level1" data-navmenu="Marginal Means">
 <h1>Interactions with Categorical Variables</h1>
-<div id="column-4" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-2" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-2" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="interactions-with-categorical-variables-1" class="section level3">
+<h3>Interactions with Categorical Variables</h3>
 <p>When we have an interaction of categorical variables, we can estimate the marginal mean in each combination of levels from the two categorical variables.</p>
 <p>Alternatively,</p>
 <p><strong>To do: <code>atmeans</code> versus as observed - I believe <code>emmeans</code> default is <code>atmeans</code> while Stata’s is as observed.</strong></p>
 </div>
-<div id="math-1" class="section level3">
-<h3>Math</h3>
-<p>Consider the simplest case, with two binary variables <span class="math inline">\(Z\)</span> and <span class="math inline">\(K\)</span>. We fit the model</p>
-<p><span class="math display">\[
-  E(Y|Z,K) = \beta_0 + \beta_1Z + \beta_2K + \beta_3ZK,
-\]</span></p>
-<p>where <span class="math inline">\(ZK = 0\)</span> only if both <span class="math inline">\(Z = 1\)</span> and <span class="math inline">\(K = 1\)</span>.</p>
-<p>This is functionally equivalent to defining a new variable <span class="math inline">\(L\)</span>,</p>
-<p><span class="math display">\[
-  L = \begin{cases}
-  0, &amp; K = 0 \&amp; Z = 0 \\
-  1, &amp; K = 0 \&amp; Z = 1 \\
-  2, &amp; K = 1 \&amp; Z = 0 \\
-  3, &amp; K = 1 \&amp; Z = 1,
-  \end{cases}
-\]</span></p>
-<p>and fitting the model</p>
-<p><span class="math display">\[
-  E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
-\]</span></p>
 </div>
-</div>
-<div id="column-5" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-2" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-2" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.sex##i.group
@@ -3006,19 +2993,40 @@ Confidence level used: 0.95 </code></pre>
 
 Confidence level used: 0.95 </code></pre>
 </div>
+<div id="math-1" class="section level3">
+<h3>Math</h3>
+<p>Consider the simplest case, with two binary variables <span class="math inline">\(Z\)</span> and <span class="math inline">\(K\)</span>. We fit the model</p>
+<p><span class="math display">\[
+  E(Y|Z,K) = \beta_0 + \beta_1Z + \beta_2K + \beta_3ZK,
+\]</span></p>
+<p>where <span class="math inline">\(ZK = 0\)</span> only if both <span class="math inline">\(Z = 1\)</span> and <span class="math inline">\(K = 1\)</span>.</p>
+<p>This is functionally equivalent to defining a new variable <span class="math inline">\(L\)</span>,</p>
+<p><span class="math display">\[
+  L = \begin{cases}
+  0, &amp; K = 0 \&amp; Z = 0 \\
+  1, &amp; K = 0 \&amp; Z = 1 \\
+  2, &amp; K = 1 \&amp; Z = 0 \\
+  3, &amp; K = 1 \&amp; Z = 1,
+  \end{cases}
+\]</span></p>
+<p>and fitting the model</p>
+<p><span class="math display">\[
+  E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
+\]</span></p>
+</div>
 </div>
 </div>
 <div id="categorical-and-continuous-variables" class="section level1" data-navmenu="Marginal Means">
 <h1>Categorical and Continuous Variables</h1>
-<div id="column-6" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-3" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-3" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="categorical-and-continuous-variables-1" class="section level3">
+<h3>Categorical and Continuous Variables</h3>
 <p>When there are additional continuous variables in the model, we may wish to obtain the marginal mean at specified levels of the continuous variable.</p>
 </div>
 </div>
-<div id="column-7" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-3" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-3" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.sex c.age
@@ -3106,15 +3114,15 @@ Confidence level used: 0.95 </code></pre>
 </div>
 <div id="categorical-and-continuous-interactions" class="section level1" data-navmenu="Marginal Means">
 <h1>Categorical and Continuous Interactions</h1>
-<div id="column-8" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-4" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-4" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="categorical-and-continuous-interactions-1" class="section level3">
+<h3>Categorical and Continuous Interactions</h3>
 <p>If there is an interaction between a categorical and continuous variable, the code is the same.</p>
 </div>
 </div>
-<div id="column-9" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-4" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-4" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.sex##c.age
@@ -3206,14 +3214,14 @@ Confidence level used: 0.95 </code></pre>
 </div>
 <div id="no-interactions" class="section level1" data-navmenu="Marginal Slopes">
 <h1>No Interactions</h1>
-<div id="column-10" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-5" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-5" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="marginal-slopes-with-no-interactions" class="section level3">
+<h3>Marginal Slopes with No Interactions</h3>
 </div>
 </div>
-<div id="column-11" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-5" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-5" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.sex c.age
@@ -3287,14 +3295,14 @@ Confidence level used: 0.95 </code></pre>
 </div>
 <div id="interactions" class="section level1" data-navmenu="Marginal Slopes">
 <h1>Interactions</h1>
-<div id="column-12" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-6" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-6" class="section level2 sidebar">
+<h2>sidebar</h2>
+<div id="marginal-slopes-with-interactions" class="section level3">
+<h3>Marginal Slopes with Interactions</h3>
 </div>
 </div>
-<div id="column-13" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-6" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-6" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.sex##c.age
@@ -3374,16 +3382,16 @@ Confidence level used: 0.95 </code></pre>
 </div>
 </div>
 </div>
-<div id="categorical-variables-1" class="section level1" data-navmenu="Pairwise Comparisons">
+<div id="categorical-variables-2" class="section level1" data-navmenu="Pairwise Comparisons">
 <h1>Categorical Variables</h1>
-<div id="column-14" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-7" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-7" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="pairwise-comparisons-of-categorical-variables" class="section level3">
+<h3>Pairwise Comparisons of Categorical Variables</h3>
 </div>
 </div>
-<div id="column-15" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-7" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-7" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.group
@@ -3461,13 +3469,13 @@ F-statistic: 15.48 on 2 and 2997 DF,  p-value: 2.045e-07</code></pre>
 </div>
 <div id="categorical-interactions" class="section level1" data-navmenu="Pairwise Comparisons">
 <h1>Categorical Interactions</h1>
-<div id="column-16" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-8" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-8" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="pairwise-comparisons-of-categorical-interactions" class="section level3">
+<h3>Pairwise Comparisons of Categorical Interactions</h3>
 </div>
 </div>
-<div id="column-17" class="section level2 tabset" data-width="680">
+<div id="column" class="section level2 tabset">
 <h2>Column</h2>
 <div id="stata-8" class="section level3">
 <h3>Stata</h3>
@@ -3591,14 +3599,14 @@ group = 3:
 </div>
 <div id="plotting" class="section level1">
 <h1>Plotting</h1>
-<div id="column-18" class="section level2 tabset">
-<h2>Column</h2>
-<div id="discussion-9" class="section level3">
-<h3>Discussion</h3>
+<div id="sidebar-9" class="section level2 sidebar">
+<h2>Sidebar</h2>
+<div id="plotting-1" class="section level3">
+<h3>Plotting</h3>
 </div>
 </div>
-<div id="column-19" class="section level2 tabset" data-width="680">
-<h2>Column</h2>
+<div id="code-8" class="section level2 tabset">
+<h2>Code</h2>
 <div id="stata-9" class="section level3">
 <h3>Stata</h3>
 <pre><code>. regress y i.sex##c.age
@@ -3663,7 +3671,7 @@ Expression   : Linear prediction, predict()
 
 </code></pre>
 <p>
-<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVGhpcyBpcyBhIFN0YXRhIDE2LjAgZ2VuZXJhdGVkIFNWRyBmaWxlIChodHRwOi8vd3d3LnN0YXRhLmNvbSkgLS0+Cgo8c3ZnIHZlcnNpb249IjEuMSIgd2lkdGg9IjUuNTBpbiIgaGVpZ2h0PSI0LjAwaW4iIHZpZXdCb3g9IjAgMCAzOTYwIDI4ODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgoJPGRlc2M+U3RhdGEgR3JhcGggLSBHcmFwaDwvZGVzYz4KCTxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzOTYwIiBoZWlnaHQ9IjI4ODAiIHN0eWxlPSJmaWxsOiNFQUYyRjM7c3Ryb2tlOm5vbmUiLz4KCTxyZWN0IHg9IjAuMDAiIHk9IjAuMDAiIHdpZHRoPSIzOTU5Ljg4IiBoZWlnaHQ9IjI4ODAuMDAiIHN0eWxlPSJmaWxsOiNFQUYyRjMiLz4KCTxyZWN0IHg9IjIuODgiIHk9IjIuODgiIHdpZHRoPSIzOTU0LjEyIiBoZWlnaHQ9IjI4NzQuMjQiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiNFQUYyRjM7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTxyZWN0IHg9IjM5MC44MCIgeT0iMjYxLjM3IiB3aWR0aD0iMzQ2OC4yMiIgaGVpZ2h0PSIxOTcyLjI3IiBzdHlsZT0iZmlsbDojRkZGRkZGIi8+Cgk8cmVjdCB4PSIzOTMuNjgiIHk9IjI2NC4yNSIgd2lkdGg9IjM0NjIuNDYiIGhlaWdodD0iMTk2Ni41MSIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS43NiIvPgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjIxNzAuMjciIHgyPSIzODU5LjAyIiB5Mj0iMjE3MC4yNyIgc3R5bGU9InN0cm9rZTojRUFGMkYzO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMTcwOC45MiIgeDI9IjM4NTkuMDIiIHkyPSIxNzA4LjkyIiBzdHlsZT0ic3Ryb2tlOiNFQUYyRjM7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxsaW5lIHgxPSIzOTAuODAiIHkxPSIxMjQ3LjU2IiB4Mj0iMzg1OS4wMiIgeTI9IjEyNDcuNTYiIHN0eWxlPSJzdHJva2U6I0VBRjJGMztzdHJva2Utd2lkdGg6OC42NCIvPgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9Ijc4Ni4wOCIgeDI9IjM4NTkuMDIiIHkyPSI3ODYuMDgiIHN0eWxlPSJzdHJva2U6I0VBRjJGMztzdHJva2Utd2lkdGg6OC42NCIvPgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjMyNC43MyIgeDI9IjM4NTkuMDIiIHkyPSIzMjQuNzMiIHN0eWxlPSJzdHJva2U6I0VBRjJGMztzdHJva2Utd2lkdGg6OC42NCIvPgoJPGRlZnM+CgkJPHBhdGggaWQ9InBhdGhfUWtNRE1DS28iIGQ9Ik00NTQuMTYgMTIxNi4xMyBMNDU0LjE2IDEyMTYuMTMgTDEyODkuNDcgMTQxMy4yNyBMMjEyNC45MSAxNjM2Ljc3IEwyOTYwLjM1IDE4OTAuNzEgTDM3OTUuNjYgMjE1NS42NyBMMzc5NS42NiAxOTI3LjM0IEwyOTYwLjM1IDE3MzcuMzggTDIxMjQuOTEgMTUzNi41MyBMMTI4OS40NyAxMzA0Ljk4IEw0NTQuMTYgMTA0Ny4yMSBMNDU0LjE2IDEyMTYuMTMgWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cgk8L2RlZnM+Cgk8ZGVmcz4KCQk8Y2xpcFBhdGggaWQ9ImNsaXBQYXRoX1N1ZXFxS09ZIj4KCQkJPHVzZSB4bGluazpocmVmPSIjcGF0aF9Ra01ETUNLbyIvPgoJCTwvY2xpcFBhdGg+Cgk8L2RlZnM+Cgk8dXNlIHhsaW5rOmhyZWY9IiNwYXRoX1FrTURNQ0tvIiBzdHlsZT0ic3Ryb2tlOm5vbmU7ZmlsbDojNDg2QzhDIi8+Cgk8dXNlIHhsaW5rOmhyZWY9IiNwYXRoX1FrTURNQ0tvIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMUE0NzZGO3N0cm9rZS13aWR0aDoxNy4yOCIgY2xpcC1wYXRoPSJ1cmwoI2NsaXBQYXRoX1N1ZXFxS09ZKSIvPgoJPGRlZnM+CgkJPHBhdGggaWQ9InBhdGhfYVlYYm1Ua1AiIGQ9Ik00NTQuMTYgNTc0LjcxIEw0NTQuMTYgNTc0LjcxIEwxMjg5LjQ3IDc3Ni4wNiBMMjEyNC45MSA5ODguNzkgTDI5NjAuMzUgMTIzMS45NyBMMzc5NS42NiAxNDk5LjkwIEwzNzk1LjY2IDEzMzAuMTEgTDI5NjAuMzUgMTEyMi40NSBMMjEyNC45MSA4OTAuMDQgTDEyODkuNDcgNjI3LjE4IEw0NTQuMTYgMzUyLjk1IEw0NTQuMTYgNTc0LjcxIFoiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoJPC9kZWZzPgoJPGRlZnM+CgkJPGNsaXBQYXRoIGlkPSJjbGlwUGF0aF9VS2VsZlNjUyI+CgkJCTx1c2UgeGxpbms6aHJlZj0iI3BhdGhfYVlYYm1Ua1AiLz4KCQk8L2NsaXBQYXRoPgoJPC9kZWZzPgoJPHVzZSB4bGluazpocmVmPSIjcGF0aF9hWVhibVRrUCIgc3R5bGU9InN0cm9rZTpub25lO2ZpbGw6I0E2NUQ2MiIvPgoJPHVzZSB4bGluazpocmVmPSIjcGF0aF9hWVhibVRrUCIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzkwMzUzQjtzdHJva2Utd2lkdGg6MTcuMjgiIGNsaXAtcGF0aD0idXJsKCNjbGlwUGF0aF9VS2VsZlNjUykiLz4KCTxwYXRoIGQ9IiBNNDU0LjA0IDExMzEuNzMgTDEyODkuNDcgMTM1OS4xOSBMMjEyNC45MSAxNTg2LjY1IEwyOTYwLjIyIDE4MTQuMTEgTDM3OTUuNjYgMjA0MS41NyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iNDU0LjA0IiBjeT0iMTEzMS43MyIgcj0iMjYuMzUiIHN0eWxlPSJmaWxsOiMxQTQ3NkYiLz4KCTxjaXJjbGUgY3g9IjQ1NC4wNCIgY3k9IjExMzEuNzMiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMUE0NzZGO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSIxMjg5LjQ3IiBjeT0iMTM1OS4xOSIgcj0iMjYuMzUiIHN0eWxlPSJmaWxsOiMxQTQ3NkYiLz4KCTxjaXJjbGUgY3g9IjEyODkuNDciIGN5PSIxMzU5LjE5IiByPSIyMi4wMyIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iMjEyNC45MSIgY3k9IjE1ODYuNjUiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojMUE0NzZGIi8+Cgk8Y2lyY2xlIGN4PSIyMTI0LjkxIiBjeT0iMTU4Ni42NSIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMxQTQ3NkY7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjI5NjAuMjIiIGN5PSIxODE0LjExIiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzFBNDc2RiIvPgoJPGNpcmNsZSBjeD0iMjk2MC4yMiIgY3k9IjE4MTQuMTEiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMUE0NzZGO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSIzNzk1LjY2IiBjeT0iMjA0MS41NyIgcj0iMjYuMzUiIHN0eWxlPSJmaWxsOiMxQTQ3NkYiLz4KCTxjaXJjbGUgY3g9IjM3OTUuNjYiIGN5PSIyMDQxLjU3IiByPSIyMi4wMyIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPHBhdGggZD0iIE00NTQuMDQgNDYzLjk1IEwxMjg5LjQ3IDcwMS42OCBMMjEyNC45MSA5MzkuNTQgTDI5NjAuMjIgMTE3Ny4yNyBMMzc5NS42NiAxNDE1LjEzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSI0NTQuMDQiIGN5PSI0NjMuOTUiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojOTAzNTNCIi8+Cgk8Y2lyY2xlIGN4PSI0NTQuMDQiIGN5PSI0NjMuOTUiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSIxMjg5LjQ3IiBjeT0iNzAxLjY4IiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzkwMzUzQiIvPgoJPGNpcmNsZSBjeD0iMTI4OS40NyIgY3k9IjcwMS42OCIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM5MDM1M0I7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjIxMjQuOTEiIGN5PSI5MzkuNTQiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojOTAzNTNCIi8+Cgk8Y2lyY2xlIGN4PSIyMTI0LjkxIiBjeT0iOTM5LjU0IiByPSIyMi4wMyIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzkwMzUzQjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iMjk2MC4yMiIgY3k9IjExNzcuMjciIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojOTAzNTNCIi8+Cgk8Y2lyY2xlIGN4PSIyOTYwLjIyIiBjeT0iMTE3Ny4yNyIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM5MDM1M0I7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjM3OTUuNjYiIGN5PSIxNDE1LjEzIiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzkwMzUzQiIvPgoJPGNpcmNsZSBjeD0iMzc5NS42NiIgY3k9IjE0MTUuMTMiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMjIzMy42MyIgeDI9IjM5MC44MCIgeTI9IjI2MS4zNyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMjE3MC4yNyIgeDI9IjM1MC44MyIgeTI9IjIxNzAuMjciIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPHRleHQgeD0iMzAwLjcyIiB5PSIyMTcwLjI3IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMzAwLjcyLDIxNzAuMjcpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj41MDwvdGV4dD4KCTxsaW5lIHgxPSIzOTAuODAiIHkxPSIxNzA4LjkyIiB4Mj0iMzUwLjgzIiB5Mj0iMTcwOC45MiIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSIzMDAuNzIiIHk9IjE3MDguOTIiIHN0eWxlPSJmb250LWZhbWlseTonSGVsdmV0aWNhJztmb250LXNpemU6OTkuOTlweDtmaWxsOiMwMDAwMDAiIHRyYW5zZm9ybT0icm90YXRlKC05MCAzMDAuNzIsMTcwOC45MikiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjYwPC90ZXh0PgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjEyNDcuNTYiIHgyPSIzNTAuODMiIHkyPSIxMjQ3LjU2IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTx0ZXh0IHg9IjMwMC43MiIgeT0iMTI0Ny41NiIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDMwMC43MiwxMjQ3LjU2KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NzA8L3RleHQ+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iNzg2LjA4IiB4Mj0iMzUwLjgzIiB5Mj0iNzg2LjA4IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTx0ZXh0IHg9IjMwMC43MiIgeT0iNzg2LjA4IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMzAwLjcyLDc4Ni4wOCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjgwPC90ZXh0PgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjMyNC43MyIgeDI9IjM1MC44MyIgeTI9IjMyNC43MyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSIzMDAuNzIiIHk9IjMyNC43MyIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDMwMC43MiwzMjQuNzMpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj45MDwvdGV4dD4KCTx0ZXh0IHg9IjE5MC43MSIgeT0iMTI0Ny41NiIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDE5MC43MSwxMjQ3LjU2KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGluZWFyIFByZWRpY3Rpb248L3RleHQ+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMjIzMy42MyIgeDI9IjM4NTkuMDIiIHkyPSIyMjMzLjYzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTxsaW5lIHgxPSI0NTQuMTYiIHkxPSIyMjMzLjYzIiB4Mj0iNDU0LjE2IiB5Mj0iMjI3My43MyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSI0NTQuMTYiIHk9IjIzNjMuNTkiIHN0eWxlPSJmb250LWZhbWlseTonSGVsdmV0aWNhJztmb250LXNpemU6OTkuOTlweDtmaWxsOiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIwPC90ZXh0PgoJPGxpbmUgeDE9IjEyODkuNDciIHkxPSIyMjMzLjYzIiB4Mj0iMTI4OS40NyIgeTI9IjIyNzMuNzMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPHRleHQgeD0iMTI4OS40NyIgeT0iMjM2My41OSIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzA8L3RleHQ+Cgk8bGluZSB4MT0iMjEyNC45MSIgeTE9IjIyMzMuNjMiIHgyPSIyMTI0LjkxIiB5Mj0iMjI3My43MyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSIyMTI0LjkxIiB5PSIyMzYzLjU5IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj40MDwvdGV4dD4KCTxsaW5lIHgxPSIyOTYwLjM1IiB5MT0iMjIzMy42MyIgeDI9IjI5NjAuMzUiIHkyPSIyMjczLjczIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTx0ZXh0IHg9IjI5NjAuMzUiIHk9IjIzNjMuNTkiIHN0eWxlPSJmb250LWZhbWlseTonSGVsdmV0aWNhJztmb250LXNpemU6OTkuOTlweDtmaWxsOiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjUwPC90ZXh0PgoJPGxpbmUgeDE9IjM3OTUuNjYiIHkxPSIyMjMzLjYzIiB4Mj0iMzc5NS42NiIgeTI9IjIyNzMuNzMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPHRleHQgeD0iMzc5NS42NiIgeT0iMjM2My41OSIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NjA8L3RleHQ+Cgk8dGV4dCB4PSIyMTI0LjkxIiB5PSIyNDczLjYwIiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5hZ2U8L3RleHQ+Cgk8cmVjdCB4PSIxMzEzLjg1IiB5PSIyNTU4LjI0IiB3aWR0aD0iMTYyMi4yNCIgaGVpZ2h0PSIxODYuMzciIHN0eWxlPSJmaWxsOiNGRkZGRkYiLz4KCTxyZWN0IHg9IjEzMTYuNzMiIHk9IjI1NjEuMTIiIHdpZHRoPSIxNjE2LjQ4IiBoZWlnaHQ9IjE4MC42MSIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPGxpbmUgeDE9IjEzNTcuMDQiIHkxPSIyNjUxLjQzIiB4Mj0iMTczMS4zOSIgeTI9IjI2NTEuNDMiIHN0eWxlPSJzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iMTU0NC4xNSIgY3k9IjI2NTEuNDMiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojMUE0NzZGIi8+Cgk8Y2lyY2xlIGN4PSIxNTQ0LjE1IiBjeT0iMjY1MS40MyIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMxQTQ3NkY7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxsaW5lIHgxPSIyMTUxLjg5IiB5MT0iMjY1MS40MyIgeDI9IjI1MjYuMjMiIHkyPSIyNjUxLjQzIiBzdHlsZT0ic3Ryb2tlOiM5MDM1M0I7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjIzMzkuMTIiIGN5PSIyNjUxLjQzIiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzkwMzUzQiIvPgoJPGNpcmNsZSBjeD0iMjMzOS4xMiIgY3k9IjI2NTEuNDMiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8dGV4dCB4PSIxNzkxLjQwIiB5PSIyNjg2LjQ2IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIj5tYWxlPC90ZXh0PgoJPHRleHQgeD0iMjU4Ni4yNSIgeT0iMjY4Ni40NiIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCI+ZmVtYWxlPC90ZXh0PgoJPHRleHQgeD0iMTk3OS44OCIgeT0iMjA2LjE5IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjEyNS45OHB4O2ZpbGw6IzFFMkQ1MyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QWRqdXN0ZWQgUHJlZGljdGlvbnMgb2Ygc2V4IHdpdGggOTUlIENJczwvdGV4dD4KPC9zdmc+Cg==" alt />
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVGhpcyBpcyBhIFN0YXRhIDE2LjAgZ2VuZXJhdGVkIFNWRyBmaWxlIChodHRwOi8vd3d3LnN0YXRhLmNvbSkgLS0+Cgo8c3ZnIHZlcnNpb249IjEuMSIgd2lkdGg9IjUuNTBpbiIgaGVpZ2h0PSI0LjAwaW4iIHZpZXdCb3g9IjAgMCAzOTYwIDI4ODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgoJPGRlc2M+U3RhdGEgR3JhcGggLSBHcmFwaDwvZGVzYz4KCTxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzOTYwIiBoZWlnaHQ9IjI4ODAiIHN0eWxlPSJmaWxsOiNFQUYyRjM7c3Ryb2tlOm5vbmUiLz4KCTxyZWN0IHg9IjAuMDAiIHk9IjAuMDAiIHdpZHRoPSIzOTU5Ljg4IiBoZWlnaHQ9IjI4ODAuMDAiIHN0eWxlPSJmaWxsOiNFQUYyRjMiLz4KCTxyZWN0IHg9IjIuODgiIHk9IjIuODgiIHdpZHRoPSIzOTU0LjEyIiBoZWlnaHQ9IjI4NzQuMjQiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiNFQUYyRjM7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTxyZWN0IHg9IjM5MC44MCIgeT0iMjYxLjM3IiB3aWR0aD0iMzQ2OC4yMiIgaGVpZ2h0PSIxOTcyLjI3IiBzdHlsZT0iZmlsbDojRkZGRkZGIi8+Cgk8cmVjdCB4PSIzOTMuNjgiIHk9IjI2NC4yNSIgd2lkdGg9IjM0NjIuNDYiIGhlaWdodD0iMTk2Ni41MSIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6NS43NiIvPgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjIxNzAuMjciIHgyPSIzODU5LjAyIiB5Mj0iMjE3MC4yNyIgc3R5bGU9InN0cm9rZTojRUFGMkYzO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMTcwOC45MiIgeDI9IjM4NTkuMDIiIHkyPSIxNzA4LjkyIiBzdHlsZT0ic3Ryb2tlOiNFQUYyRjM7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxsaW5lIHgxPSIzOTAuODAiIHkxPSIxMjQ3LjU2IiB4Mj0iMzg1OS4wMiIgeTI9IjEyNDcuNTYiIHN0eWxlPSJzdHJva2U6I0VBRjJGMztzdHJva2Utd2lkdGg6OC42NCIvPgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9Ijc4Ni4wOCIgeDI9IjM4NTkuMDIiIHkyPSI3ODYuMDgiIHN0eWxlPSJzdHJva2U6I0VBRjJGMztzdHJva2Utd2lkdGg6OC42NCIvPgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjMyNC43MyIgeDI9IjM4NTkuMDIiIHkyPSIzMjQuNzMiIHN0eWxlPSJzdHJva2U6I0VBRjJGMztzdHJva2Utd2lkdGg6OC42NCIvPgoJPGRlZnM+CgkJPHBhdGggaWQ9InBhdGhfUk90WnduU3UiIGQ9Ik00NTQuMTYgMTIxNi4xMyBMNDU0LjE2IDEyMTYuMTMgTDEyODkuNDcgMTQxMy4yNyBMMjEyNC45MSAxNjM2Ljc3IEwyOTYwLjM1IDE4OTAuNzEgTDM3OTUuNjYgMjE1NS42NyBMMzc5NS42NiAxOTI3LjM0IEwyOTYwLjM1IDE3MzcuMzggTDIxMjQuOTEgMTUzNi41MyBMMTI4OS40NyAxMzA0Ljk4IEw0NTQuMTYgMTA0Ny4yMSBMNDU0LjE2IDEyMTYuMTMgWiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cgk8L2RlZnM+Cgk8ZGVmcz4KCQk8Y2xpcFBhdGggaWQ9ImNsaXBQYXRoX2FaalVZVVp6Ij4KCQkJPHVzZSB4bGluazpocmVmPSIjcGF0aF9ST3Rad25TdSIvPgoJCTwvY2xpcFBhdGg+Cgk8L2RlZnM+Cgk8dXNlIHhsaW5rOmhyZWY9IiNwYXRoX1JPdFp3blN1IiBzdHlsZT0ic3Ryb2tlOm5vbmU7ZmlsbDojNDg2QzhDIi8+Cgk8dXNlIHhsaW5rOmhyZWY9IiNwYXRoX1JPdFp3blN1IiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMUE0NzZGO3N0cm9rZS13aWR0aDoxNy4yOCIgY2xpcC1wYXRoPSJ1cmwoI2NsaXBQYXRoX2FaalVZVVp6KSIvPgoJPGRlZnM+CgkJPHBhdGggaWQ9InBhdGhfZ2x3V0xWZVkiIGQ9Ik00NTQuMTYgNTc0LjcxIEw0NTQuMTYgNTc0LjcxIEwxMjg5LjQ3IDc3Ni4wNiBMMjEyNC45MSA5ODguNzkgTDI5NjAuMzUgMTIzMS45NyBMMzc5NS42NiAxNDk5LjkwIEwzNzk1LjY2IDEzMzAuMTEgTDI5NjAuMzUgMTEyMi40NSBMMjEyNC45MSA4OTAuMDQgTDEyODkuNDcgNjI3LjE4IEw0NTQuMTYgMzUyLjk1IEw0NTQuMTYgNTc0LjcxIFoiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgoJPC9kZWZzPgoJPGRlZnM+CgkJPGNsaXBQYXRoIGlkPSJjbGlwUGF0aF9CR0dLSGNDdSI+CgkJCTx1c2UgeGxpbms6aHJlZj0iI3BhdGhfZ2x3V0xWZVkiLz4KCQk8L2NsaXBQYXRoPgoJPC9kZWZzPgoJPHVzZSB4bGluazpocmVmPSIjcGF0aF9nbHdXTFZlWSIgc3R5bGU9InN0cm9rZTpub25lO2ZpbGw6I0E2NUQ2MiIvPgoJPHVzZSB4bGluazpocmVmPSIjcGF0aF9nbHdXTFZlWSIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzkwMzUzQjtzdHJva2Utd2lkdGg6MTcuMjgiIGNsaXAtcGF0aD0idXJsKCNjbGlwUGF0aF9CR0dLSGNDdSkiLz4KCTxwYXRoIGQ9IiBNNDU0LjA0IDExMzEuNzMgTDEyODkuNDcgMTM1OS4xOSBMMjEyNC45MSAxNTg2LjY1IEwyOTYwLjIyIDE4MTQuMTEgTDM3OTUuNjYgMjA0MS41NyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iNDU0LjA0IiBjeT0iMTEzMS43MyIgcj0iMjYuMzUiIHN0eWxlPSJmaWxsOiMxQTQ3NkYiLz4KCTxjaXJjbGUgY3g9IjQ1NC4wNCIgY3k9IjExMzEuNzMiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMUE0NzZGO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSIxMjg5LjQ3IiBjeT0iMTM1OS4xOSIgcj0iMjYuMzUiIHN0eWxlPSJmaWxsOiMxQTQ3NkYiLz4KCTxjaXJjbGUgY3g9IjEyODkuNDciIGN5PSIxMzU5LjE5IiByPSIyMi4wMyIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iMjEyNC45MSIgY3k9IjE1ODYuNjUiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojMUE0NzZGIi8+Cgk8Y2lyY2xlIGN4PSIyMTI0LjkxIiBjeT0iMTU4Ni42NSIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMxQTQ3NkY7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjI5NjAuMjIiIGN5PSIxODE0LjExIiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzFBNDc2RiIvPgoJPGNpcmNsZSBjeD0iMjk2MC4yMiIgY3k9IjE4MTQuMTEiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMUE0NzZGO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSIzNzk1LjY2IiBjeT0iMjA0MS41NyIgcj0iMjYuMzUiIHN0eWxlPSJmaWxsOiMxQTQ3NkYiLz4KCTxjaXJjbGUgY3g9IjM3OTUuNjYiIGN5PSIyMDQxLjU3IiByPSIyMi4wMyIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPHBhdGggZD0iIE00NTQuMDQgNDYzLjk1IEwxMjg5LjQ3IDcwMS42OCBMMjEyNC45MSA5MzkuNTQgTDI5NjAuMjIgMTE3Ny4yNyBMMzc5NS42NiAxNDE1LjEzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSI0NTQuMDQiIGN5PSI0NjMuOTUiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojOTAzNTNCIi8+Cgk8Y2lyY2xlIGN4PSI0NTQuMDQiIGN5PSI0NjMuOTUiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8Y2lyY2xlIGN4PSIxMjg5LjQ3IiBjeT0iNzAxLjY4IiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzkwMzUzQiIvPgoJPGNpcmNsZSBjeD0iMTI4OS40NyIgY3k9IjcwMS42OCIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM5MDM1M0I7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjIxMjQuOTEiIGN5PSI5MzkuNTQiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojOTAzNTNCIi8+Cgk8Y2lyY2xlIGN4PSIyMTI0LjkxIiBjeT0iOTM5LjU0IiByPSIyMi4wMyIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzkwMzUzQjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iMjk2MC4yMiIgY3k9IjExNzcuMjciIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojOTAzNTNCIi8+Cgk8Y2lyY2xlIGN4PSIyOTYwLjIyIiBjeT0iMTE3Ny4yNyIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM5MDM1M0I7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjM3OTUuNjYiIGN5PSIxNDE1LjEzIiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzkwMzUzQiIvPgoJPGNpcmNsZSBjeD0iMzc5NS42NiIgY3k9IjE0MTUuMTMiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMjIzMy42MyIgeDI9IjM5MC44MCIgeTI9IjI2MS4zNyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMjE3MC4yNyIgeDI9IjM1MC44MyIgeTI9IjIxNzAuMjciIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPHRleHQgeD0iMzAwLjcyIiB5PSIyMTcwLjI3IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMzAwLjcyLDIxNzAuMjcpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj41MDwvdGV4dD4KCTxsaW5lIHgxPSIzOTAuODAiIHkxPSIxNzA4LjkyIiB4Mj0iMzUwLjgzIiB5Mj0iMTcwOC45MiIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSIzMDAuNzIiIHk9IjE3MDguOTIiIHN0eWxlPSJmb250LWZhbWlseTonSGVsdmV0aWNhJztmb250LXNpemU6OTkuOTlweDtmaWxsOiMwMDAwMDAiIHRyYW5zZm9ybT0icm90YXRlKC05MCAzMDAuNzIsMTcwOC45MikiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjYwPC90ZXh0PgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjEyNDcuNTYiIHgyPSIzNTAuODMiIHkyPSIxMjQ3LjU2IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTx0ZXh0IHg9IjMwMC43MiIgeT0iMTI0Ny41NiIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDMwMC43MiwxMjQ3LjU2KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NzA8L3RleHQ+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iNzg2LjA4IiB4Mj0iMzUwLjgzIiB5Mj0iNzg2LjA4IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTx0ZXh0IHg9IjMwMC43MiIgeT0iNzg2LjA4IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgMzAwLjcyLDc4Ni4wOCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjgwPC90ZXh0PgoJPGxpbmUgeDE9IjM5MC44MCIgeTE9IjMyNC43MyIgeDI9IjM1MC44MyIgeTI9IjMyNC43MyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSIzMDAuNzIiIHk9IjMyNC43MyIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDMwMC43MiwzMjQuNzMpIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj45MDwvdGV4dD4KCTx0ZXh0IHg9IjE5MC43MSIgeT0iMTI0Ny41NiIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDE5MC43MSwxMjQ3LjU2KSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TGluZWFyIFByZWRpY3Rpb248L3RleHQ+Cgk8bGluZSB4MT0iMzkwLjgwIiB5MT0iMjIzMy42MyIgeDI9IjM4NTkuMDIiIHkyPSIyMjMzLjYzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTxsaW5lIHgxPSI0NTQuMTYiIHkxPSIyMjMzLjYzIiB4Mj0iNDU0LjE2IiB5Mj0iMjI3My43MyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSI0NTQuMTYiIHk9IjIzNjMuNTkiIHN0eWxlPSJmb250LWZhbWlseTonSGVsdmV0aWNhJztmb250LXNpemU6OTkuOTlweDtmaWxsOiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIwPC90ZXh0PgoJPGxpbmUgeDE9IjEyODkuNDciIHkxPSIyMjMzLjYzIiB4Mj0iMTI4OS40NyIgeTI9IjIyNzMuNzMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPHRleHQgeD0iMTI4OS40NyIgeT0iMjM2My41OSIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MzA8L3RleHQ+Cgk8bGluZSB4MT0iMjEyNC45MSIgeTE9IjIyMzMuNjMiIHgyPSIyMTI0LjkxIiB5Mj0iMjI3My43MyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDo1Ljc2Ii8+Cgk8dGV4dCB4PSIyMTI0LjkxIiB5PSIyMzYzLjU5IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj40MDwvdGV4dD4KCTxsaW5lIHgxPSIyOTYwLjM1IiB5MT0iMjIzMy42MyIgeDI9IjI5NjAuMzUiIHkyPSIyMjczLjczIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjUuNzYiLz4KCTx0ZXh0IHg9IjI5NjAuMzUiIHk9IjIzNjMuNTkiIHN0eWxlPSJmb250LWZhbWlseTonSGVsdmV0aWNhJztmb250LXNpemU6OTkuOTlweDtmaWxsOiMwMDAwMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjUwPC90ZXh0PgoJPGxpbmUgeDE9IjM3OTUuNjYiIHkxPSIyMjMzLjYzIiB4Mj0iMzc5NS42NiIgeTI9IjIyNzMuNzMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPHRleHQgeD0iMzc5NS42NiIgeT0iMjM2My41OSIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NjA8L3RleHQ+Cgk8dGV4dCB4PSIyMTI0LjkxIiB5PSIyNDczLjYwIiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5hZ2U8L3RleHQ+Cgk8cmVjdCB4PSIxMzEzLjg1IiB5PSIyNTU4LjI0IiB3aWR0aD0iMTYyMi4yNCIgaGVpZ2h0PSIxODYuMzciIHN0eWxlPSJmaWxsOiNGRkZGRkYiLz4KCTxyZWN0IHg9IjEzMTYuNzMiIHk9IjI1NjEuMTIiIHdpZHRoPSIxNjE2LjQ4IiBoZWlnaHQ9IjE4MC42MSIgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6NS43NiIvPgoJPGxpbmUgeDE9IjEzNTcuMDQiIHkxPSIyNjUxLjQzIiB4Mj0iMTczMS4zOSIgeTI9IjI2NTEuNDMiIHN0eWxlPSJzdHJva2U6IzFBNDc2RjtzdHJva2Utd2lkdGg6OC42NCIvPgoJPGNpcmNsZSBjeD0iMTU0NC4xNSIgY3k9IjI2NTEuNDMiIHI9IjI2LjM1IiBzdHlsZT0iZmlsbDojMUE0NzZGIi8+Cgk8Y2lyY2xlIGN4PSIxNTQ0LjE1IiBjeT0iMjY1MS40MyIgcj0iMjIuMDMiIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMxQTQ3NkY7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxsaW5lIHgxPSIyMTUxLjg5IiB5MT0iMjY1MS40MyIgeDI9IjI1MjYuMjMiIHkyPSIyNjUxLjQzIiBzdHlsZT0ic3Ryb2tlOiM5MDM1M0I7c3Ryb2tlLXdpZHRoOjguNjQiLz4KCTxjaXJjbGUgY3g9IjIzMzkuMTIiIGN5PSIyNjUxLjQzIiByPSIyNi4zNSIgc3R5bGU9ImZpbGw6IzkwMzUzQiIvPgoJPGNpcmNsZSBjeD0iMjMzOS4xMiIgY3k9IjI2NTEuNDMiIHI9IjIyLjAzIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojOTAzNTNCO3N0cm9rZS13aWR0aDo4LjY0Ii8+Cgk8dGV4dCB4PSIxNzkxLjQwIiB5PSIyNjg2LjQ2IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjk5Ljk5cHg7ZmlsbDojMDAwMDAwIj5tYWxlPC90ZXh0PgoJPHRleHQgeD0iMjU4Ni4yNSIgeT0iMjY4Ni40NiIgc3R5bGU9ImZvbnQtZmFtaWx5OidIZWx2ZXRpY2EnO2ZvbnQtc2l6ZTo5OS45OXB4O2ZpbGw6IzAwMDAwMCI+ZmVtYWxlPC90ZXh0PgoJPHRleHQgeD0iMTk3OS44OCIgeT0iMjA2LjE5IiBzdHlsZT0iZm9udC1mYW1pbHk6J0hlbHZldGljYSc7Zm9udC1zaXplOjEyNS45OHB4O2ZpbGw6IzFFMkQ1MyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QWRqdXN0ZWQgUHJlZGljdGlvbnMgb2Ygc2V4IHdpdGggOTUlIENJczwvdGV4dD4KPC9zdmc+Cg==" alt />
 </p>
 </div>
 <div id="r-9" class="section level3">

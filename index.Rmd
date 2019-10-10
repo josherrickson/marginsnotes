@@ -14,17 +14,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introduction
 
-Column
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
-
-Insert discussion.
+### Introduction
 
 We'll use the `margex` data set from Stata. See the tabs on the right
 for the necessary syntax and code to load the data.
 
-Column {.tabset}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
@@ -39,15 +37,29 @@ Column {.tabset}
 
 # Categorical Variables {data-navmenu="Marginal Means"}
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Categorical Variables
 
 When we have a single categorical variable (not involved in an
 interaction), one level is excluded as a reference or baseline
 category, and the coefficients on the other levels represent the
 average difference between those levels and the reference.
+
+
+Code {.tabset}
+-------------------------------------
+
+### Stata
+
+```{r child = 'categorical.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/categorical.Rmd'}
+```
 
 ### Math
 
@@ -71,27 +83,12 @@ the average response between groups \(G = 1\) and \(G =
 3.
 
 
-Column {.tabset data-width=680}
--------------------------------------
-
-### Stata
-
-```{r child = 'categorical.Rmd'}
-```
-
-### R
-
-```{r child = 'R_markdown/categorical.Rmd'}
-```
-
-
 # Interactions with Categorical Variables {data-navmenu="Marginal Means"}
 
-
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Interactions with Categorical Variables
 
 When we have an interaction of categorical variables, we can estimate
 the marginal mean in each combination of levels from the two
@@ -102,8 +99,20 @@ Alternatively,
 **To do: `atmeans` versus as observed - I believe `emmeans` default is
   `atmeans` while Stata's is as observed.**
 
-### Math
+Code {.tabset}
+-------------------------------------
 
+### Stata
+
+```{r child = 'categorical_interaction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/categorical_interaction.Rmd'}
+```
+
+### Math
 
 Consider the simplest case, with two binary variables \(Z\) and
 \(K\). We fit the model
@@ -131,33 +140,18 @@ and fitting the model
   E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
 \]
 
-
-
-Column {.tabset data-width=680}
--------------------------------------
-
-### Stata
-
-```{r child = 'categorical_interaction.Rmd'}
-```
-
-### R
-
-```{r child = 'R_markdown/categorical_interaction.Rmd'}
-```
-
 # Categorical and Continuous Variables {data-navmenu="Marginal Means"}
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Categorical and Continuous Variables
 
 When there are additional continuous variables in the model, we may
 wish to obtain the marginal mean at specified levels of the continuous
 variable.
 
-Column {.tabset data-width=680}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
@@ -172,14 +166,14 @@ Column {.tabset data-width=680}
 
 # Categorical and Continuous Interactions {data-navmenu="Marginal Means"}
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Categorical and Continuous Interactions
 
 If there is an interaction between a categorical and continuous variable, the code is the same.
 
-Column {.tabset data-width=680}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
@@ -194,13 +188,12 @@ Column {.tabset data-width=680}
 
 # No Interactions {data-navmenu="Marginal Slopes"}
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Marginal Slopes with No Interactions
 
-
-Column {.tabset data-width=680}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
@@ -215,13 +208,13 @@ Column {.tabset data-width=680}
 
 # Interactions {data-navmenu="Marginal Slopes"}
 
-Column {.tabset}
+sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Marginal Slopes with Interactions
 
 
-Column {.tabset data-width=680}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
@@ -237,13 +230,13 @@ Column {.tabset data-width=680}
 
 # Categorical Variables {data-navmenu="Pairwise Comparisons"}
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Pairwise Comparisons of Categorical Variables
 
 
-Column {.tabset data-width=680}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
@@ -258,13 +251,13 @@ Column {.tabset data-width=680}
 
 # Categorical Interactions {data-navmenu="Pairwise Comparisons"}
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Pairwise Comparisons of Categorical Interactions
 
 
-Column {.tabset data-width=680}
+Column {.tabset}
 -------------------------------------
 
 ### Stata
@@ -279,13 +272,13 @@ Column {.tabset data-width=680}
 
 # Plotting
 
-Column {.tabset}
+Sidebar {.sidebar}
 -------------------------------------
 
-### Discussion
+### Plotting
 
 
-Column {.tabset data-width=680}
+Code {.tabset}
 -------------------------------------
 
 ### Stata
