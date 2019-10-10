@@ -19,7 +19,19 @@ knitr::opts_chunk$set(echo = TRUE)
 Sidebar {.sidebar}
 -------------------------------------
 
-### Introduction
+### Layout
+
+On the left sidebar for each page, you'll find a (mostly)
+software-agnostic discussion of the topic at hand.
+
+The main panels of each page consist of a tabbed series of pages with
+the code and output in the noted language. On some pages, there will
+be an additional Math tab with mathematical details.
+
+Column
+-------------------------------------
+
+### Marginal Effects
 
 After running a regression model of some sort, the common way of
 interpreting the relationships between predictors and the outcome is
@@ -61,27 +73,46 @@ results can address all these questions.
 Finally, marginal effect estimation is a step towards creating
 informative visualizations of relationships such as interaction plots.
 
-While marginal effects is a generic statistical concept, Stata's
-`margins` command was the first to truly support it in a
-straightforward manner. On each page you'll find the Stata syntax
-using the `margins` command. On other tabs, you'll find code in other
-languages (R for now though others may be added) to replicate the
-results. Finally, on same pages, there will be a Math tab with
-additional mathematical details.
 
-For all example, we'll use the `margex` data set from Stata.
+# Data and Libraries
+
+Sidebar {.sidebar}
+-------------------------------------
+
+### Data
+
+For all examples, we'll use the `margex` data set from Stata. This
+data set was designed for examples using `margins` and contains a nice
+mix of continuous and categorical variables.
+
+The primary outcome variable will be "y", a continuous variable.
+
+The predictors we'll be using include "group", a categorical variable
+with 3 levels; "sex", a binary variable; and "age", a continuous
+variable.
+
+### Libraries
+
+In Stata, everything needed is built-in.
+
+In R, we'll need to load several libraries.
+
+- `emmeans` - The primary package used to estimate marginal effects.
+- `interactions` - Used for visualization.
+- `haven` - Used to read the `margex` data from Stata into R.
+
 
 Code {.tabset}
 -------------------------------------
 
 ### Stata
 
-```{r child = 'introduction.Rmd'}
+```{r child = 'data.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/introduction.Rmd'}
+```{r child = 'R_markdown/data_and_packages.Rmd'}
 ```
 
 # Categorical Variables {data-navmenu="Marginal Means"}
