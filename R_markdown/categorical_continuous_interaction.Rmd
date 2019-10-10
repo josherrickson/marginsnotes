@@ -1,5 +1,7 @@
 ```{r}
 summary(mod1 <- lm(y ~ sex*age, data = m))
+emmeans::emmeans(mod1, ~ 1, at = list(age = 30))
+emmeans::emmeans(mod1, ~ 1, at = list(age = 40))
 emmeans::emmeans(mod1, ~ sex, at = list(age = 30))
 emmeans::emmeans(mod1, ~ sex, at = list(age = 40))
 ```

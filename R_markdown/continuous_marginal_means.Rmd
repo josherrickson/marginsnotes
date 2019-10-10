@@ -2,6 +2,13 @@ For each unique level of the continuous variable, a seperate `emmeans` call is n
 
 ```{r}
 summary(mod1 <- lm(y ~ sex + age, data = m))
+emmeans::emmeans(mod1, ~ 1, at = list(age = 30))
+emmeans::emmeans(mod1, ~ 1, at = list(age = 40))
+```
+
+Note the use of `~ 1`. This argument (`spec`) cannot be excluded, but using `~ 1` basically ignores it and only focuses on the `at`.
+
+```{r}
 emmeans::emmeans(mod1, ~ sex, at = list(age = 30))
 emmeans::emmeans(mod1, ~ sex, at = list(age = 40))
 ```

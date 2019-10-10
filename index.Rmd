@@ -120,13 +120,20 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Categorical Variables
+### Marginal Means for Categorical Variables
 
 When we have a single categorical variable (not involved in an
-interaction), one level is excluded as a reference or baseline
-category, and the coefficients on the other levels represent the
-average difference between those levels and the reference.
+interaction) in a model, one level is excluded as a reference or
+baseline category, and the coefficients on the other levels represent
+the average difference between those levels and the reference.
 
+The marginal means for each level of the categorical can be calcuated
+to estimate the average response for that level.
+
+To obtain this estimate, we assume that every observation belongs to
+the same group, then predict their outcome in the model as if they
+were in that group, and their other predictors were at the observed
+level. Finally, average over all observations.
 
 Code {.tabset}
 -------------------------------------
@@ -172,12 +179,11 @@ Sidebar {.sidebar}
 
 When we have an interaction of categorical variables, we can estimate
 the marginal mean in each combination of levels from the two
-categorical variables.
-
-Alternatively,
-
-**To do: `atmeans` versus as observed - I believe `emmeans` default is
-  `atmeans` while Stata's is as observed.**
+categorical variables. In other words, think of it as a single
+categorical variable describing all combinations and it operates
+similarly - set all observations to be a particular combination of
+levels, predict the outcome using their observed covariates, and
+average.
 
 Code {.tabset}
 -------------------------------------
@@ -220,28 +226,40 @@ and fitting the model
   E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
 \]
 
-# Categorical and Continuous Variables {data-navmenu="Marginal Means"}
+# Continuous Variables {data-navmenu="Marginal Means"}
 
 Sidebar {.sidebar}
 -------------------------------------
 
-### Categorical and Continuous Variables
+### Marginal Means for Continuous Variables
 
-When there are additional continuous variables in the model, we may
-wish to obtain the marginal mean at specified levels of the continuous
-variable.
+Marginal means for continuous variables actually operate the same as
+for categorical variables, in the sense that they are setting all
+observations to a specific value of the continuous variable, then all
+predicted values are averaged.
+
+Typically we obtain the marginal means over several meaningful values
+of the categorical variable to glimpse at the
+relationship. [Plotting](#plotting) is extremely useful and always
+recommended when marginal effects for continuous variables are
+desired.
+
+We can of course obtain marginal means with any number of variables
+fixed; in the example to the right we first obtain marginal means when
+"age" is at certain values, then when "age" is at certain values and
+within each group.
 
 Code {.tabset}
 -------------------------------------
 
 ### Stata
 
-```{r child = 'categorical_and_continuous.Rmd'}
+```{r child = 'continuous_marginal_means.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/categorical_and_continuous.Rmd'}
+```{r child = 'R_markdown/continuous_marginal_means.Rmd'}
 ```
 
 # Categorical and Continuous Interactions {data-navmenu="Marginal Means"}
@@ -251,7 +269,10 @@ Sidebar {.sidebar}
 
 ### Categorical and Continuous Interactions
 
-If there is an interaction between a categorical and continuous variable, the code is the same.
+When there are interactions in the model, the code to obtain marginal
+means does not change. From the perspective of "fixing some predictors
+to specific values and predicting the outcome", whether there are
+interactions or not do not matter.
 
 Code {.tabset}
 -------------------------------------
