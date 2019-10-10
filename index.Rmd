@@ -21,8 +21,55 @@ Sidebar {.sidebar}
 
 ### Introduction
 
-We'll use the `margex` data set from Stata. See the tabs on the right
-for the necessary syntax and code to load the data.
+After running a regression model of some sort, the common way of
+interpreting the relationships between predictors and the outcome is
+by interpreting the regression coefficients. In many situations these
+interpretations are straightforward, however, in some settings the
+interpretations can be tricky, or the coefficients can simply not be
+interpreted.
+
+These complications arise most commonly when a model involves an
+interaction or moderation. In these sort of models, interpretation of
+the coefficients requires special care due to the relationship between
+the various interacted predictors, and the set of information
+obtainable from the coefficients is often limited without resorting to
+significant algebra.
+
+Marginal effects offer an improvement over simple coefficient
+interpretation. **Marginal means** allow you to estimate the average
+response under a set of conditions; e.g. the average response for each
+racial group, or the average response when age and weight are at
+certain values.
+
+**Marginal slopes** estimate the slope between a
+predictor and the outcome when other variables are at some specific
+value; e.g. the average slope on age within each gender, or the
+average slope on age when weight is at certain values.
+
+In either case, in addition to estimating these marginal effects, we
+can easily test hypotheses of equality between them via **pairwise
+comparisons**. For example, is the average response different by
+ethnicity, or is the slope on age different between genders.
+
+If you are familiar with interpreting regression coefficients, and
+specifically interactions, you may have some idea of how to start
+addressing all the above examples. However, to complete answer these
+research questions would require more than simply a table of
+regression coefficients. With marginal effects, one additional set of
+results can address all these questions.
+
+Finally, marginal effect estimation is a step towards creating
+informative visualizations of relationships such as interaction plots.
+
+While marginal effects is a generic statistical concept, Stata's
+`margins` command was the first to truly support it in a
+straightforward manner. On each page you'll find the Stata syntax
+using the `margins` command. On other tabs, you'll find code in other
+languages (R for now though others may be added) to replicate the
+results. Finally, on same pages, there will be a Math tab with
+additional mathematical details.
+
+For all example, we'll use the `margex` data set from Stata.
 
 Code {.tabset}
 -------------------------------------
