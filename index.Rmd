@@ -135,6 +135,31 @@ the same group, then predict their outcome in the model as if they
 were in that group, and their other predictors were at the observed
 level. Finally, average over all observations.
 
+#### Example
+
+The regression model has a single predictor, "group", which is the
+aforementioned 3-level categorical variable. Group 1 is excluded as
+the reference category, so the intercept (`_cons` in Stata) estimates
+the predicted average response in group 1 of 68.4. The coefficients on
+group 2 and group 3 reflect the difference the predicted average
+response per group, so the predicted average response in group 2 is
+68.4 + .4 = 68.8. Correspondingly, the average response for group 3 is
+68.4 + 5.4 = 73.8.
+
+Notice that the margin means gives us the same predicted average
+response per group, along with standard errors. (The standard error
+for group 1's estimate is the same as the intercept, but the standard
+error for the two other groups would require additional work.)
+
+The regression output does contain some additional information; namely
+the coefficients on group 2 and group 3 test the hypotheses
+respectively that group 1 and group 2 are equivalent, and that group 1
+and group 3 are equivalent; neither of which are provided by the
+marginal means. However, [pairwise
+comparisons](#categorical-variables-1) can obtain these easily, as well
+as the comparison between groups 2 and 3 which is not provided by the
+regression output.
+
 Code {.tabset}
 -------------------------------------
 
