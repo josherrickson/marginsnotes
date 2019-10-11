@@ -28,12 +28,16 @@ index.html: index.Rmd $(Stata_Rmd)
 #	Remove any files copies up
 	@rm -f $(TMP)
 
+.PHONY: default
 default: $(Stata_Rmd)  index.html
 
+.PHONY: clean
 clean:
 	@git clean -xdf
 
+.PHONY: fresh
 fresh: clean default
 
+.PHONY: open
 open:
 	@open index.html
