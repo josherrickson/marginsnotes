@@ -1,6 +1,5 @@
 
 ```{r}
 summary(mod1 <- lm(y ~ sex*group, data = m))
-emmeans::emmeans(mod1, ~ group)
 emmeans::emmeans(mod1, ~ group + sex)
 ```

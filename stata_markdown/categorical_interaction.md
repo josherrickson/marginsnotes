@@ -7,7 +7,6 @@ webuse margex
 ~~~~
 <<dd_do>>
 regress y i.sex##i.group
-margins sex
 margins sex#group
 <</dd_do>>
 ~~~~
