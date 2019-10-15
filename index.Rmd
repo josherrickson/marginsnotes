@@ -300,6 +300,25 @@ Code {.tabset}
 ```{r child = 'R_markdown/slopes_no_interaction.Rmd'}
 ```
 
+### Math
+
+The Stata `margins` command to obtain marginal means includes the "`dydx`" option, which points to derivative - and indeed, this is exactly what is computer. If we have a basic regression model,
+
+\[
+  E(Y|X) = \beta_0 + \beta_1X
+\]
+
+taking the derivative with respect to \(X\) will obtain \(\beta_1\), which is the estimated coefficient.
+
+If \(X\) enters the model in a more complex way, say a polynomial term:
+
+\[
+  E(Y|X) = \beta_0 + \beta_1X + \beta_2X^2
+\]
+
+now the derivative is \(\beta_1 + 2\beta_2X\). Similar to marginal means, where the predicted outcome was estimated for each individual then those
+outcomes averaged, here the derivative is estimated plugging in each observation's value of \(X\), then averaged.
+
 # Categorical by continuous interaction {data-navmenu="Marginal Slopes"}
 
 sidebar {.sidebar}
