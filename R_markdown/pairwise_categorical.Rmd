@@ -1,9 +1,12 @@
+```{r}
+summary(mod1 <- lm(y ~ group, data = m))
+```
+
 Note that `pairs` is a generic, meaning that `emmeans::pairs` is an
 invalid call. Despite this, the "emmeans" package is required to call
 the below.
 
 ```{r}
-summary(mod1 <- lm(y ~ group, data = m))
 pairs(emmeans::emmeans(mod1, ~ group), adjust = "none")
 ```
 
