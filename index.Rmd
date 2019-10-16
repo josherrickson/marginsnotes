@@ -436,6 +436,34 @@ Column {.tabset}
 ```{r child = 'R_markdown/pairwise_categorical_interaction.Rmd'}
 ```
 
+# Marginal Slopes {data-navmenu="Pairwise Comparisons"}
+
+Sidebar {.sidebar}
+-------------------------------------
+
+### Pairwise Comparisons of Marginal Slopes
+
+Pairwise comparisons between marginal slopes works essentially the same; once we can estimate the marginal slopes we want, we can test for equality
+between them.
+
+#### Example
+
+As with the [categorical by categorical interaction](#categorical-interactions), we see that the regression coefficients on the interaction terms are
+replicated in the pairwise comparisons, but we also get the additional comparison of the slopes in groups 2 versus 3.
+
+Column {.tabset}
+-------------------------------------
+
+### Stata
+
+```{r child = 'pairwise_categorical_continuous_interaction.Rmd'}
+```
+
+### R
+
+```{r child = 'R_markdown/pairwise_categorical_continuous_interaction.Rmd'}
+```
+
 # Plotting
 
 Sidebar {.sidebar}
