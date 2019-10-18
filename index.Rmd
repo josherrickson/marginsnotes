@@ -471,6 +471,23 @@ Sidebar {.sidebar}
 
 ### Plotting
 
+Plotting the results from marginal means and slopes, most commonly exemplified in interactions plots, is where the differences between Stata and R
+start to show. Stata can plot the results of any `margins` call, with varying levels of usefulness. For each particular variation of the plot, we may
+need to find a separate way to plot it in R.
+
+Interaction plots involved plotting the marginal means over several values of two (or more) predictor variables to examine the interaction in more
+detail. One predictor is plotted along the X-axis; the other predictor(s) are used to produce multiple lines. If the secondary predictor(s) are
+categorical, usually one line is plotted per group; if the secondary predictor(s) is continuous, then lines are drawn at several meaningful values of
+the predictor.
+
+#### Example
+
+Here we again model the interaction of group with age. From the regression coefficients and even the marginal means, it's hard to really identify the
+full pattern. However, looking at the plots, we can see that amongst younger individuals, group 1 has the highest predicted outcome, whereas that
+reverses amongst the elderly with group 1 having the lowest predicted outcome, or at least no difference than the other groups.
+
+Another way to interpret the plot would be that we see a decline in the outcome as individuals age, though the decline is more sharp in group 1 than
+the other groups.
 
 Code {.tabset}
 -------------------------------------
