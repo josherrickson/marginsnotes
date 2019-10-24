@@ -1,3 +1,6 @@
+Note that any variable specified in the `at` option must also appear in the formula. Any variables you place in the formula but not `at` will be
+examined at each unique level (so don't put a continuous variable there!).
+
 ```{r}
 summary(mod1 <- lm(y ~ sex + age + distance, data = m))
 emmeans::emmeans(mod1, ~ age, at = list(age = c(30, 40)))
