@@ -1,25 +1,14 @@
-There are two ways to do this. In the first, we can specify specific values of multiple variables, but only specify a single value per variable.
+For each unique level of the continuous variable, a seperate `emmeans` call is needed apparently. If anyone knows a way around this, please let me know.
 
 ```{r}
-summary(mod1 <- lm(y ~ sex + age + distance, data = m))
+summary(mod1 <- lm(y ~ sex + age, data = m))
 emmeans::emmeans(mod1, ~ 1, at = list(age = 30))
-emmeans::emmeans(mod1, ~ 1, at = list(age = 40, distance = 10))
+emmeans::emmeans(mod1, ~ 1, at = list(age = 40))
 ```
 
 Note the use of `~ 1`. This argument (`spec`) cannot be excluded, but using `~ 1` basically ignores it and only focuses on the `at`.
 
-Alternatively, we can specify it slightly differently, which allows for multiple values of a single variable, but not multiple variables.
-
-```{r}
-emmeans::emmeans(mod1, ~ age, cov.reduce = function(x) c(30, 40))
-emmeans::emmeans(mod1, ~ age + distance, cov.reduce = function(x) c(30, 40))
-```
-
-Note that we're back to using `~ age`.
-
-For either approach, we can add a categorical variable to the formula to examine across levels of that variable.
-
 ```{r}
 emmeans::emmeans(mod1, ~ sex, at = list(age = 30))
-emmeans::emmeans(mod1, ~ age + sex, cov.reduce = function(x) c(30, 40))
+emmeans::emmeans(mod1, ~ sex, at = list(age = 40))
 ```
