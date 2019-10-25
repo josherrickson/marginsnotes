@@ -333,7 +333,7 @@ Code {.tabset}
 ```{r child = 'ms_con.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/ms_emmeans_con.Rmd'}
 ```
@@ -386,7 +386,7 @@ Code {.tabset}
 ```{r child = 'ms_con_int.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/ms_emmeans_con_int.Rmd'}
 ```
@@ -446,7 +446,7 @@ Code {.tabset}
 ```{r child = 'pw_cat.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/pw_emmeans_cat.Rmd'}
 ```
@@ -469,7 +469,7 @@ Column {.tabset}
 ```{r child = 'pw_cat_int.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/pw_emmeans_cat_int.Rmd'}
 ```
@@ -497,7 +497,7 @@ Column {.tabset}
 ```{r child = 'pw_cat_con_int.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/pw_emmeans_cat_con_int.Rmd'}
 ```
@@ -535,7 +535,7 @@ Code {.tabset}
 ```{r child = 'plotting.Rmd'}
 ```
 
-### R
+### R (interactions)
 
 ```{r child = 'R_markdown/plotting_interactions.Rmd'}
 ```
