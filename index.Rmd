@@ -73,12 +73,7 @@ The predictors we'll be using include "group", a categorical variable with 3 lev
 
 In Stata, everything needed is built-in.
 
-In R, we'll need to load several libraries.
-
-- `emmeans` - The primary package used to estimate marginal effects.
-- `interactions` - Used for visualization.
-- `haven` - Used to read the "margex" data from Stata into R.
-
+For R, I've implemented the marginal effects estimates using both the `emmeans` and `ggeffects` packages. You'll see each in it's own tab on the right. In addition, there is an additional package, `interactions`, which we use for plotting. Finally, the `haven` package is used to read the "margex" data from Stata into R.
 
 Code {.tabset}
 -------------------------------------
@@ -88,9 +83,14 @@ Code {.tabset}
 ```{r child = 'data.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
-```{r child = 'R_markdown/data_and_packages.Rmd'}
+```{r child = 'R_markdown/data_pack_emmeans.Rmd'}
+```
+
+### R (ggeffects)
+
+```{r child = 'R_markdown/data_pack_ggeffects.Rmd'}
 ```
 
 # Categorical Variables {data-navmenu="Marginal Means"}
