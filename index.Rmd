@@ -73,7 +73,7 @@ The predictors we'll be using include "group", a categorical variable with 3 lev
 
 In Stata, everything needed is built-in.
 
-For R, I've implemented the marginal effects estimates using both the `emmeans` and `ggeffects` packages. You'll see each in it's own tab on the right. In addition, there is an additional package, `interactions`, which we use for plotting. Finally, the `haven` package is used to read the "margex" data from Stata into R.
+For R, I've implemented the marginal effects estimates using both the `emmeans` and `ggeffects` packages. You'll see each in it's own tab on the right. In addition, there is an additional package, `interactions`, which we use for plotting.
 
 Code {.tabset}
 -------------------------------------
@@ -83,14 +83,14 @@ Code {.tabset}
 ```{r child = 'data.Rmd'}
 ```
 
-### R (emmeans)
+### R Data
 
-```{r child = 'R_markdown/data_pack_emmeans.Rmd'}
+```{r child = 'R_markdown/data.Rmd'}
 ```
 
-### R (ggeffects)
+### R Packages
 
-```{r child = 'R_markdown/data_pack_ggeffects.Rmd'}
+```{r child = 'R_markdown/packages.Rmd'}
 ```
 
 # Categorical Variables {data-navmenu="Marginal Means"}
@@ -131,12 +131,12 @@ Code {.tabset}
 ```{r child = 'mm_cat.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/mm_emmeans_cat.Rmd'}
 ```
 
-### R (ggeffects)
+### R (`ggeffects`)
 
 ```{r child = 'R_markdown/mm_ggeffects_cat.Rmd'}
 ```
@@ -188,12 +188,12 @@ Code {.tabset}
 ```{r child = 'mm_cat_int.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/mm_emmeans_cat_int.Rmd'}
 ```
 
-### R (ggeffects)
+### R (`ggeffects`)
 
 ```{r child = 'R_markdown/mm_ggeffects_cat_int.Rmd'}
 ```
@@ -249,12 +249,12 @@ Code {.tabset}
 ```{r child = 'mm_con.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/mm_emmeans_con.Rmd'}
 ```
 
-### R (ggeffects)
+### R (`ggeffects`)
 
 ```{r child = 'R_markdown/mm_ggeffects_con.Rmd'}
 ```
@@ -295,12 +295,12 @@ Code {.tabset}
 ```{r child = 'mm_cat_con_int.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/mm_emmeans_cat_con_int.Rmd'}
 ```
 
-### R (ggeffects)
+### R (`ggeffects`)
 
 ```{r child = 'R_markdown/mm_ggeffects_cat_con_int.Rmd'}
 ```
@@ -333,7 +333,7 @@ Code {.tabset}
 ```{r child = 'ms_con.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/ms_emmeans_con.Rmd'}
 ```
@@ -386,7 +386,7 @@ Code {.tabset}
 ```{r child = 'ms_con_int.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/ms_emmeans_con_int.Rmd'}
 ```
@@ -446,7 +446,7 @@ Code {.tabset}
 ```{r child = 'pw_cat.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/pw_emmeans_cat.Rmd'}
 ```
@@ -469,7 +469,7 @@ Column {.tabset}
 ```{r child = 'pw_cat_int.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/pw_emmeans_cat_int.Rmd'}
 ```
@@ -497,7 +497,7 @@ Column {.tabset}
 ```{r child = 'pw_cat_con_int.Rmd'}
 ```
 
-### R (emmeans)
+### R (`emmeans`)
 
 ```{r child = 'R_markdown/pw_emmeans_cat_con_int.Rmd'}
 ```
@@ -535,7 +535,7 @@ Code {.tabset}
 ```{r child = 'plotting.Rmd'}
 ```
 
-### R (interactions)
+### R (`interactions`)
 
 ```{r child = 'R_markdown/plotting_interactions.Rmd'}
 ```

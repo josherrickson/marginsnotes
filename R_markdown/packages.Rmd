@@ -1,0 +1,43 @@
+There are several packages which can be used to estimate marginal means. So far, this document implements `emmeans` and `ggeffects`.
+
+`emmeans` is based on an older package, `lsmeans`, and is more flexible and powerful. However, it's syntax is slightly strange, and there are often several ways to obtain similar results which may or may not be the same. Additionally, while it's immediate output is clear, accessing the raw data producing the output takes some doing.
+
+`ggeffects` is a newer package designed to tie into the dplyr/ggplot universe. It's results are always a clean data frame which can be manipulated or passed straight into ggplot. However, `ggeffects` can *only* estimate marginal means, not marginal slopes or pairwise comparisons. (If I'm wrong about that last statement, please let me know.)
+
+In addition, the `interactions` package is used to plot interaction effects.
+
+### `emmeans`
+
+```{r}
+library(emmeans)
+```
+
+### `ggeffects`
+
+The `ggeffects` package requires several other packages to work fully. However, it does not follow proper package framework and requires you to ensure you have the following packages installed as well:
+
+- `effects`
+- `emmeans`
+- `ggplot2`
+
+```{r}
+library(ggeffects)
+library(effects)
+library(emmeans)
+library(ggplot2)
+```
+
+If you do not have those packages loaded, `ggeffects` will load them on demand (rather than at the time of loading `ggeffects`). If you do not have a required package installed, `ggeffects` will instead produce a warning, so keep an eye out for those and install packages as needed.
+
+### `interactions`
+
+```{r}
+library(interactions)
+```
+
+### A Note on R Syntax
+
+To make clear which function belongs to which library, I've used R's [double
+colon](https://stat.ethz.ch/R-manual/R-devel/library/base/html/ns-dblcolon.html) notation to be explicit. You do not need to include
+these. E.g. `library::function()` can be run simply as `function()`. There's a bit of possible confusion in that the workhorse function `emmeans`,
+belongs to the "emmeans" package, so `emmeans::emmeans` can be run as just `emmeans` to the right of the `::`.
