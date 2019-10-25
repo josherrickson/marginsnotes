@@ -128,12 +128,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'categorical.Rmd'}
+```{r child = 'mm_cat.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/categorical.Rmd'}
+```{r child = 'R_markdown/mm_emmeans_cat.Rmd'}
 ```
 
 ### Math
@@ -180,12 +180,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'categorical_interaction.Rmd'}
+```{r child = 'mm_cat_int.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/categorical_interaction.Rmd'}
+```{r child = 'R_markdown/mm_emmeans_cat_int.Rmd'}
 ```
 
 ### Math
@@ -236,12 +236,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'continuous_marginal_means.Rmd'}
+```{r child = 'mm_con.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/continuous_marginal_means.Rmd'}
+```{r child = 'R_markdown/mm_emmeans_con.Rmd'}
 ```
 
 ### Math
@@ -277,12 +277,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'categorical_continuous_interaction.Rmd'}
+```{r child = 'mm_cat_con_int.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/categorical_continuous_interaction.Rmd'}
+```{r child = 'R_markdown/mm_emmeans_cat_con_int.Rmd'}
 ```
 
 # Marginal Slopes {data-navmenu="Marginal Slopes"}
@@ -310,12 +310,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'slopes_no_interaction.Rmd'}
+```{r child = 'ms_con.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/slopes_no_interaction.Rmd'}
+```{r child = 'R_markdown/ms_emmeans_con.Rmd'}
 ```
 
 ### Math
@@ -363,12 +363,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'slopes_interaction.Rmd'}
+```{r child = 'ms_con_int.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/slopes_interaction.Rmd'}
+```{r child = 'R_markdown/ms_emmeans_con_int.Rmd'}
 ```
 
 ### Math
@@ -423,12 +423,12 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'pairwise_categorical.Rmd'}
+```{r child = 'pw_cat.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/pairwise_categorical.Rmd'}
+```{r child = 'R_markdown/pw_emmeans_cat.Rmd'}
 ```
 
 # Categorical Interactions {data-navmenu="Pairwise Comparisons"}
@@ -446,12 +446,12 @@ Column {.tabset}
 
 ### Stata
 
-```{r child = 'pairwise_categorical_interaction.Rmd'}
+```{r child = 'pw_cat_int.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/pairwise_categorical_interaction.Rmd'}
+```{r child = 'R_markdown/pw_emmeans_cat_int.Rmd'}
 ```
 
 # Marginal Slopes {data-navmenu="Pairwise Comparisons"}
@@ -474,12 +474,12 @@ Column {.tabset}
 
 ### Stata
 
-```{r child = 'pairwise_categorical_continuous_interaction.Rmd'}
+```{r child = 'pw_cat_con_int.Rmd'}
 ```
 
 ### R
 
-```{r child = 'R_markdown/pairwise_categorical_continuous_interaction.Rmd'}
+```{r child = 'R_markdown/pw_emmeans_cat_con_int.Rmd'}
 ```
 
 # Plotting
@@ -517,5 +517,5 @@ Code {.tabset}
 
 ### R
 
-```{r child = 'R_markdown/plotting.Rmd'}
+```{r child = 'R_markdown/plotting_interactions.Rmd'}
 ```
