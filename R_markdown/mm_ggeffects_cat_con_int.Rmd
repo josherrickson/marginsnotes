@@ -1,0 +1,5 @@
+```{r}
+summary(mod1 <- lm(y ~ sex*age, data = m))
+ggeffects::ggeffect(mod1, "age [30, 40]")
+ggeffects::ggeffect(mod1, c("sex", "age [30, 40]"))
+```
