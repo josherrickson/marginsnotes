@@ -188,9 +188,14 @@ Code {.tabset}
 ```{r child = 'mm_cat_int.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/mm_emmeans_cat_int.Rmd'}
+```
+
+### R (ggeffects)
+
+```{r child = 'R_markdown/mm_ggeffects_cat_int.Rmd'}
 ```
 
 ### Math
@@ -244,9 +249,14 @@ Code {.tabset}
 ```{r child = 'mm_con.Rmd'}
 ```
 
-### R
+### R (emmeans)
 
 ```{r child = 'R_markdown/mm_emmeans_con.Rmd'}
+```
+
+### R (ggeffects)
+
+```{r child = 'R_markdown/mm_ggeffects_con.Rmd'}
 ```
 
 ### Math
