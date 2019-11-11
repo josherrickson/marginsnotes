@@ -13,3 +13,7 @@
 .dashboard-column-orientation {
     padding-left: 400px !important
 }
+
+.table {
+    width: 40%;
+}
