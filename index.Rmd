@@ -206,7 +206,7 @@ Consider the simplest case, with two binary variables \(Z\) and \(K\). We fit th
   E(Y|Z,K) = \beta_0 + \beta_1Z + \beta_2K + \beta_3ZK,
 \]
 
-where \(ZK = 0\) only if both \(Z = 1\) and \(K = 1\).
+where \(ZK = 1\) only if both \(Z = 1\) and \(K = 1\).
 
 This is functionally equivalent to defining a new variable \(L\),
 
