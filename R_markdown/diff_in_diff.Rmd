@@ -1,0 +1,5 @@
+```{r}
+summary(mod1 <- lm(y ~ group*sex, data = m))
+emmeans::contrast(emmeans::emmeans(mod1, ~ sex | group), "pairwise")
+pairs(pairs(emmeans(mod1, ~ sex|group)), by = NULL, adjust = "none")
+```

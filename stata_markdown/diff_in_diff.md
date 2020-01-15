@@ -1,37 +1,19 @@
 ~~~~
+<<dd_do: quiet>>
+webuse margex
+<</dd_do>>
+~~~~
+
+~~~~
 <<dd_do>>
-* Set up data
-webuse grunfeld, clear
-gen treated = 0
-replace treated=1 if company>5
-replace time = 0
-replace time = 1 if year>=1940
-
-
-* Without log
-mixed mvalue i.time##i.treated || company:
-
-margins time#treated
-mata:
-r = st_matrix("r(table)")
-(r[1,1] - r[1,2]) - (r[1,3] - r[1,4])
-end
-
-margins r.treated, at(time = (0 1)) contrast(nowald atcontrast(r))
-
-
-
-* With log
-gen lgm = log(mvalue)
-
-mixed lgm i.time##i.treated || company:
-
-margins time#treated, expression(exp(predict(xb)))
-mata:
-r = st_matrix("r(table)")
-(r[1,1] - r[1,2]) - (r[1,3] - r[1,4])
-end
-
-margins r.treated, at(time = (0 1)) contrast(nowald atcontrast(r)) expression(exp(predict(xb)))
+regress y i.group##i.sex
+margins sex@group, contrast(pv nowald)
+margins sex#{group -1 1 0}, contrast(pv)
+<</dd_do>>
+~~~~
+The manual contrast `{group -1 1 0}` is specifying that we want to compare groups 1 and 2, ignoring group 3. We could iterate over the three comparisons in three different `margins` calls, or below shows how to specify multiple contrasts at once.
+~~~~
+<<dd_do>>
+margins sex#({group -1 1 0} {group -1 0 1} {group 0 -1 1}), contrast(pv)
 <</dd_do>>
 ~~~~
