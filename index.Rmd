@@ -521,7 +521,7 @@ interaction and testing comparisons between comparisons.
 We continue with the sex-by-group interaction, asking whether the gender differences (the first comparison) differ by group (the second comparison).
 
 Estimating the gender difference within each group shows us, for example, that in group 1, the gender difference is 21.6 and in group 2, the gender
-difference is 16.8. Therefore the diff-in-diff estimate should be 4.8, which we see both in the regression output (`2#female` or `group2:sexfemale`)
+difference is 16.8. Therefore the diff-in-diff estimate should be -4.8, which we see both in the regression output (`2#female` or `group2:sexfemale`)
 as well as in the actual diff-in-diff estimates.
 
 Column {.tabset}
