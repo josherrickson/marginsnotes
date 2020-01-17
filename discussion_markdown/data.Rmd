@@ -1,0 +1,14 @@
+### Data
+
+For all examples, we'll use the "margex" data set from Stata. This data set was designed for examples using `margins` and contains a nice mix of
+continuous and categorical variables.
+
+The primary outcome variable will be "y", a continuous variable.
+
+The predictors we'll be using include "group", a categorical variable with 3 levels; "sex", a binary variable; and "age", a continuous variable.
+
+### Libraries
+
+In Stata, everything needed is built-in.
+
+For R, I've implemented the marginal effects estimates using both the `emmeans` and `ggeffects` packages. You'll see each in it's own tab on the right. In addition, there is an additional package, `interactions`, which we use for plotting.

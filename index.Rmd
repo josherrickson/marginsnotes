@@ -60,20 +60,8 @@ Finally, marginal effect estimation is a step towards creating informative visua
 Sidebar {.sidebar}
 -------------------------------------
 
-### Data
-
-For all examples, we'll use the "margex" data set from Stata. This data set was designed for examples using `margins` and contains a nice mix of
-continuous and categorical variables.
-
-The primary outcome variable will be "y", a continuous variable.
-
-The predictors we'll be using include "group", a categorical variable with 3 levels; "sex", a binary variable; and "age", a continuous variable.
-
-### Libraries
-
-In Stata, everything needed is built-in.
-
-For R, I've implemented the marginal effects estimates using both the `emmeans` and `ggeffects` packages. You'll see each in it's own tab on the right. In addition, there is an additional package, `interactions`, which we use for plotting.
+```{r child = 'discussion_markdown/data.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -98,30 +86,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Marginal Means for Categorical Variables
-
-When we have a single categorical variable (not involved in an interaction) in a model, one level is excluded as a reference or baseline category, and
-the coefficients on the other levels represent the average difference between those levels and the reference.
-
-The marginal means for each level of the categorical can be calcuated to estimate the average response for that level.
-
-To obtain this estimate, we assume that every observation belongs to the same group, then predict their outcome in the model as if they were in that
-group, and their other predictors were at the observed level. Finally, average over all observations.
-
-#### Example
-
-The regression model has a single predictor, "group", which is the aforementioned 3-level categorical variable. Group 1 is excluded as the reference
-category, so the intercept (`_cons` in Stata) estimates the predicted average response in group 1 of 68.4. The coefficients on group 2 and group 3
-reflect the difference the predicted average response per group, so the predicted average response in group 2 is 68.4 + .4 = 68.8. Correspondingly,
-the average response for group 3 is 68.4 + 5.4 = 73.8.
-
-Notice that the margin means gives us the same predicted average response per group, along with standard errors. (The standard error for group 1's
-estimate is the same as the intercept, but the standard error for the two other groups would require additional work.)
-
-The regression output does contain some additional information; namely the coefficients on group 2 and group 3 test the hypotheses respectively that
-group 1 and group 2 are equivalent, and that group 1 and group 3 are equivalent; neither of which are provided by the marginal means. However,
-[pairwise comparisons](#categorical-variables-1) can obtain these easily, as well as the comparison between groups 2 and 3 which is not provided by
-the regression output.
+```{r child = 'discussion_markdown/mm_cat.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -151,23 +117,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Interactions between Categorical Variables
-
-When we have an interaction of categorical variables, we can estimate the marginal mean in each combination of levels from the two categorical
-variables. In other words, think of it as a single categorical variable describing all combinations and it operates similarly - set all observations
-to be a particular combination of levels, predict the outcome using their observed covariates, and average.
-
-#### Example
-
-Since this is not that different that a single categorical variable, everything carries over - the intercept in the regression model represents the
-reference category (group 1 males) for a predicted average response of 50.6. The coefficients on group 2 and 3 represent the difference between the
-predicted average response for group 1 versus groups 2 and 3 respectively, *among males*. The coefficient on female represents the difference between
-the predicted average response for males and females, *among group 1*. The coefficients on the interactions represent additional conditional
-comparisons. We can use basic arithmetic to estimate the predicted average responses in other groups; for example females in group 2 are estimated by
-the sum of all coefficients in female and group 2 added to the intercept - so the female coefficient, the group 2 coefficient, and the female by group
-2 interaction, for 50.6 + 21.6 + 11.4 + (-4.9) = 78.7. Looking at the margins output, we see this corresponds.
-
-The discussion about standard errors and hypothesis testing carries forward as well.
+```{r child = 'discussion_markdown/mm_cat_ind.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -197,16 +148,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Marginal Means for Continuous Variables
-
-Marginal means for continuous variables actually operate the same as for categorical variables, in the sense that they are setting all observations to
-a specific value of the continuous variable, then all predicted values are averaged.
-
-Typically we obtain the marginal means over several meaningful values of the categorical variable to glimpse at the
-relationship. [Plotting](#plotting) is extremely useful and always recommended when marginal effects for continuous variables are desired.
-
-We can of course obtain marginal means with any number of variables fixed; in the example to the right we first obtain marginal means when "age" is at
-certain values, then when "age" is at certain values and within each group.
+```{r child = 'discussion_markdown/mm_con.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -236,10 +179,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Categorical and Continuous Interactions
-
-When there are interactions in the model, the code to obtain marginal means does not change. From the perspective of "fixing some predictors to
-specific values and predicting the outcome", whether there are interactions or not do not matter.
+```{r child = 'discussion_markdown/mm_cat_con_int.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------

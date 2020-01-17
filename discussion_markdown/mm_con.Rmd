@@ -1,0 +1,10 @@
+### Marginal Means for Continuous Variables
+
+Marginal means for continuous variables actually operate the same as for categorical variables, in the sense that they are setting all observations to
+a specific value of the continuous variable, then all predicted values are averaged.
+
+Typically we obtain the marginal means over several meaningful values of the categorical variable to glimpse at the
+relationship. [Plotting](#plotting) is extremely useful and always recommended when marginal effects for continuous variables are desired.
+
+We can of course obtain marginal means with any number of variables fixed; in the example to the right we first obtain marginal means when "age" is at
+certain values, then when "age" is at certain values and within each group.

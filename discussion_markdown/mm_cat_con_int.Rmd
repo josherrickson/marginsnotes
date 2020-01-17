@@ -1,0 +1,4 @@
+### Categorical and Continuous Interactions
+
+When there are interactions in the model, the code to obtain marginal means does not change. From the perspective of "fixing some predictors to
+specific values and predicting the outcome", whether there are interactions or not do not matter.

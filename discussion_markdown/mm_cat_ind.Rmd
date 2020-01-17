@@ -1,0 +1,17 @@
+### Interactions between Categorical Variables
+
+When we have an interaction of categorical variables, we can estimate the marginal mean in each combination of levels from the two categorical
+variables. In other words, think of it as a single categorical variable describing all combinations and it operates similarly - set all observations
+to be a particular combination of levels, predict the outcome using their observed covariates, and average.
+
+#### Example
+
+Since this is not that different that a single categorical variable, everything carries over - the intercept in the regression model represents the
+reference category (group 1 males) for a predicted average response of 50.6. The coefficients on group 2 and 3 represent the difference between the
+predicted average response for group 1 versus groups 2 and 3 respectively, *among males*. The coefficient on female represents the difference between
+the predicted average response for males and females, *among group 1*. The coefficients on the interactions represent additional conditional
+comparisons. We can use basic arithmetic to estimate the predicted average responses in other groups; for example females in group 2 are estimated by
+the sum of all coefficients in female and group 2 added to the intercept - so the female coefficient, the group 2 coefficient, and the female by group
+2 interaction, for 50.6 + 21.6 + 11.4 + (-4.9) = 78.7. Looking at the margins output, we see this corresponds.
+
+The discussion about standard errors and hypothesis testing carries forward as well.
