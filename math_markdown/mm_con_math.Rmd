@@ -1,0 +1,14 @@
+Consider a model with a single continuous predictor, plus a control variable (which may be continuous or categorical).
+
+\[
+  E(Y|X, Z) = \beta_0 + \beta_1X + \beta_2Z.
+\]
+
+For any given value of \(X\), it is easy to compute the marginal mean for a given individual. For example,
+
+\[
+  E(Y|X = 2, Z) = \beta_0 + 2\beta_1 + \beta_2Z.
+\]
+
+Therefore we can easily compute \(E(y_i|x = 2, z = z_i)\) for each individual (the predicted outcome if each individual had a value of \(X = 2\), with
+their other values at the observed value) and average them.

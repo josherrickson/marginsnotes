@@ -143,19 +143,8 @@ Code {.tabset}
 
 ### Math
 
-Assume a linear regression set up with a single categorical variable, \(G\), with three groups. We fit
-
-\[
-  E(Y|G) = \beta_0 + \beta_1g_2 + \beta_2g_3,
-\]
-
-where \(g_2\) and \(g_3\) are dummy variables representing membership in groups 2 and 3 respectively (\(g_{2i} = 1\) if observation \(i\) has \(G =
-2\), and equal to 0 otherwise.) Since \(g_1\) is not found in the model, it is the reference category.
-
-Therefore, \(\beta_0\) represents the average response among the reference category \(G = 1\). \(\beta_1\) represents the difference in the average
-response between groups \(G = 1\) and \(G = 2\). Therefore, \(\beta_0 + \beta_1\) is the average response in group \(G = 2\). A similar argument can
-be made about \(\beta_2\) and group 3.
-
+```{r child = 'math_markdown/mm_cat_math.Rmd'}
+```
 
 # Interactions between Categorical Variables {data-navmenu="Marginal Means"}
 
@@ -200,30 +189,8 @@ Code {.tabset}
 
 ### Math
 
-Consider the simplest case, with two binary variables \(Z\) and \(K\). We fit the model
-
-\[
-  E(Y|Z,K) = \beta_0 + \beta_1Z + \beta_2K + \beta_3ZK,
-\]
-
-where \(ZK = 1\) only if both \(Z = 1\) and \(K = 1\).
-
-This is functionally equivalent to defining a new variable \(L\),
-
-\[
-  L = \begin{cases}
-  0, & K = 0 \& Z = 0 \\
-  1, & K = 0 \& Z = 1 \\
-  2, & K = 1 \& Z = 0 \\
-  3, & K = 1 \& Z = 1,
-  \end{cases}
-\]
-
-and fitting the model
-
-\[
-  E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
-\]
+```{r child = 'math_markdown/mm_cat_int_math.Rmd'}
+```
 
 # Continuous Variables {data-navmenu="Marginal Means"}
 
@@ -261,21 +228,8 @@ Code {.tabset}
 
 ### Math
 
-Consider a model with a single continuous predictor, plus a control variable (which may be continuous or categorical).
-
-\[
-  E(Y|X, Z) = \beta_0 + \beta_1X + \beta_2Z.
-\]
-
-For any given value of \(X\), it is easy to compute the marginal mean for a given individual. For example,
-
-\[
-  E(Y|X = 2, Z) = \beta_0 + 2\beta_1 + \beta_2Z.
-\]
-
-Therefore we can easily compute \(E(y_i|x = 2, z = z_i)\) for each individual (the predicted outcome if each individual had a value of \(X = 2\), with
-their other values at the observed value) and average them.
-
+```{r child = 'math_markdown/mm_con_math.Rmd'}
+```
 
 # Categorical and Continuous Interactions {data-navmenu="Marginal Means"}
 
@@ -340,22 +294,9 @@ Code {.tabset}
 
 ### Math
 
-The Stata `margins` command to obtain marginal means includes the "`dydx`" option, which points to derivative - and indeed, this is exactly what is computer. If we have a basic regression model,
+```{r child = 'math_markdown/ms_con_math.Rmd'}
+```
 
-\[
-  E(Y|X) = \beta_0 + \beta_1X
-\]
-
-taking the derivative with respect to \(X\) will obtain \(\beta_1\), which is the estimated coefficient.
-
-If \(X\) enters the model in a more complex way, say a polynomial term:
-
-\[
-  E(Y|X) = \beta_0 + \beta_1X + \beta_2X^2
-\]
-
-now the derivative is \(\beta_1 + 2\beta_2X\). Similar to marginal means, where the predicted outcome was estimated for each individual then those
-outcomes averaged, here the derivative is estimated plugging in each observation's value of \(X\), then averaged.
 
 # Categorical by continuous interaction {data-navmenu="Marginal Slopes"}
 
@@ -393,21 +334,8 @@ Code {.tabset}
 
 ### Math
 
-Let's assume we have a binary variable, \(Z\), interacted with a continuous variable, \(X\).
-
-\[
-  E(Y|X,Z) = \beta_0 + \beta_1X + \beta_2Z + \beta_3XZ
-\]
-
-Here we're combining the math from marginal effects with marginal slopes. First, we generate two equations, one for \(Z = 0\) and one for \(Z = 1\):
-
-\begin{align*}
-  E(Y|X, Z = 0) & = \beta_0 + \beta_1X \\
-  E(Y|X, Z = 1) & = \beta_0 + \beta_1X + \beta_2 + \beta_3X = (\beta_0 + \beta_2) + (\beta_1 + \beta_3)X.
-\end{align*}
-
-Then when we differentiate each with respect to \(X\), we obtain \(\beta_1\) and \((\beta_1 + \beta_3)\) respectively.
-
+```{r child = 'math_markdown/ms_con_int_math.Rmd'}
+```
 
 # Categorical Variables {data-navmenu="Pairwise Comparisons"}
 

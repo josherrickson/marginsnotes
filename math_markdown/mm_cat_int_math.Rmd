@@ -1,0 +1,25 @@
+
+Consider the simplest case, with two binary variables \(Z\) and \(K\). We fit the model
+
+\[
+  E(Y|Z,K) = \beta_0 + \beta_1Z + \beta_2K + \beta_3ZK,
+\]
+
+where \(ZK = 1\) only if both \(Z = 1\) and \(K = 1\).
+
+This is functionally equivalent to defining a new variable \(L\),
+
+\[
+  L = \begin{cases}
+  0, & K = 0\ \&\ Z = 0 \\
+  1, & K = 0\ \&\ Z = 1 \\
+  2, & K = 1\ \&\ Z = 0 \\
+  3, & K = 1\ \&\ Z = 1,
+  \end{cases}
+\]
+
+and fitting the model
+
+\[
+  E(Y|L) = \beta_0 + \beta_1l_1 + \beta_2l_2 + \beta_3l_3.
+\]

@@ -1,0 +1,13 @@
+
+Assume a linear regression set up with a single categorical variable, \(G\), with three groups. We fit
+
+\[
+  E(Y|G) = \beta_0 + \beta_1g_2 + \beta_2g_3,
+\]
+
+where \(g_2\) and \(g_3\) are dummy variables representing membership in groups 2 and 3 respectively (\(g_{2i} = 1\) if observation \(i\) has \(G =
+2\), and equal to 0 otherwise.) Since \(g_1\) is not found in the model, it is the reference category.
+
+Therefore, \(\beta_0\) represents the average response among the reference category \(G = 1\). \(\beta_1\) represents the difference in the average
+response between groups \(G = 1\) and \(G = 2\). Therefore, \(\beta_0 + \beta_1\) is the average response in group \(G = 2\). A similar argument can
+be made about \(\beta_2\) and group 3.

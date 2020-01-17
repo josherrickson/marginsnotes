@@ -1,0 +1,14 @@
+Let's assume we have a binary variable, \(Z\), interacted with a continuous variable, \(X\).
+
+\[
+  E(Y|X,Z) = \beta_0 + \beta_1X + \beta_2Z + \beta_3XZ
+\]
+
+Here we're combining the math from marginal effects with marginal slopes. First, we generate two equations, one for \(Z = 0\) and one for \(Z = 1\):
+
+\begin{align*}
+  E(Y|X, Z = 0) & = \beta_0 + \beta_1X \\
+  E(Y|X, Z = 1) & = \beta_0 + \beta_1X + \beta_2 + \beta_3X = (\beta_0 + \beta_2) + (\beta_1 + \beta_3)X.
+\end{align*}
+
+Then when we differentiate each with respect to \(X\), we obtain \(\beta_1\) and \((\beta_1 + \beta_3)\) respectively.
