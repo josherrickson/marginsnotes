@@ -1,0 +1,4 @@
+### Pairwise Comparisons of Categorical Interactions
+
+Since interactions of categorical variables can be thought of as just a single categorical variable, pairwise comparisons between all permutations of
+the categorical variables works the same.

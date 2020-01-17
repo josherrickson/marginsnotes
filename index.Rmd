@@ -205,20 +205,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Marginal Slopes
-
-In addition to the marginal means, we can also estimate the marginal slopes. In other words, the predicted average slope on a given predictor, when
-all other predictors are at their observed value. When the continuous variable whose marginal slope we estimate is *not* involved in an interaction,
-this simply recovers the estimates coefficient from the regression model. This will become more interesting when the continuous variable is involved
-in an interaction.
-
-(Note that although we interpret binary variables in a particular way, mathematically they are simply continuous variables [for continuous variables
-we often discuss "a 1-unit increase"; for a binary variable, a 1-unit increase is simply 1 versus 0]. Therefore we can in fact obtain marginal slopes
-for binary predictors, which is again the estimated coefficient and represents the average predicted difference between groups.)
-
-#### Example
-
-We see in this example that the estimated coefficient on the "age" continuous variable is -0.5; the estimated marginal slope for age is the same -0.5.
+```{r child = 'discussion_markdown/ms_con.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -244,21 +232,8 @@ Code {.tabset}
 sidebar {.sidebar}
 -------------------------------------
 
-### Marginal Slopes with Interactions
-
-When there is an interaction between a categorical variable and a continuous variable, it is natural to want to estimate the slope at each level of
-the categorical variable, the marginal slope. This is very similar to the marginal mean, but instead of the average predicted outcome per group, it's
-the average predicted slope per group.
-
-As we mentioned when discussing [marginal means with interactions](#interactions-between-categorical-variables), regression coefficients tell only a
-partial story when there is an interaction involved. Regression coefficients will estimate the slope in the reference group and the difference between
-the slope in the reference group and other groups, but not explicitly estimate the slope in each group. Marginal slopes does this.
-
-#### Example
-
-Here we interact "sex" (binary) with "age" (continuous). The regression coefficients tell us that the slope among males (the reference group) is
--0.49, and the difference in slopes between groups is -0.022. The marginal mean gives us the slope amongst males again, as well as -0.49 + (-0.02) =
-0.51 as the slope among females.
+```{r child = 'discussion_markdown/ms_con_int.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -283,29 +258,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Pairwise Comparisons of Categorical Variables
-
-Estimating marginal means and slopes is very convenient, but usually we'll require addressing a specific research question determining whether two
-marginal means or slopes are statistically distinguishable. We saw that marginal means for categorical variables are simple functions of the
-regressino coefficients, so testing for equality between groups is eqiuvalent to testing for whether the model found a difference between groups.
-
-To test for these differences, we'll be obtaining all pairwise differences.
-
-Keeping track of the direction of these differences can be cumbersome; I'd recommend looking at both marginal means and pairwise comparisons to keep
-the directionality straight.
-
-#### Example
-
-We return to our simple model with a single 3-level predictor. In the regression model, the coefficients on group 2 and group 3 are actually exactly
-what we want, however, note that the comparison between groups 2 and 3 is not represented. This gap grows exponentially as the number of groups
-increases; with 4 groups, we see 3 of the 6 possible pairwise comparisons, and with 6 groups we see only 4 of the 15 possible pairwise comparisons.
-
-In the pairwise comparisons output, we see the 2 vs 1 and 3 vs 1 comparisons replicated, as well as the comparison of 2 versus 3. From here we can
-interpret that group 3 is statistically distinguishable from the other groups.
-
-Note that you can get seemingly contradictory results - group A is statistically distinguishable from B, B is statistically distinguishable from C,
-but A and C are not statistically distinguishable. These results are not incorrect, and often occur when group B's marginal mean is midway between A
-and C.
+```{r child = 'discussion_markdown/pw_cat.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------
@@ -325,10 +279,8 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Pairwise Comparisons of Categorical Interactions
-
-Since interactions of categorical variables can be thought of as just a single categorical variable, pairwise comparisons between all permutations of
-the categorical variables works the same.
+```{r child = 'discussion_markdown/pw_cat_int.Rmd'}
+```
 
 Column {.tabset}
 -------------------------------------
@@ -348,15 +300,8 @@ Column {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Pairwise Comparisons of Marginal Slopes
-
-Pairwise comparisons between marginal slopes works essentially the same; once we can estimate the marginal slopes we want, we can test for equality
-between them.
-
-#### Example
-
-As with the [categorical by categorical interaction](#categorical-interactions), we see that the regression coefficients on the interaction terms are
-replicated in the pairwise comparisons, but we also get the additional comparison of the slopes in groups 2 versus 3.
+```{r child = 'discussion_markdown/pw_cat_con_int.Rmd'}
+```
 
 Column {.tabset}
 -------------------------------------
@@ -376,22 +321,8 @@ Column {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Diff-in-Diff
-
-Sometimes the comparison we're interested in is a comparison between comparisons. Imagine testing a treatment effect on multiple groups, and wanting
-to test whether the treatment effect differs per group. Essentially this is testing the interaction effect; however, if there are more than two
-groups, coefficients are only reported comparing to the baseline. Additionally, in non-linear regression, marginal effects may be desired.
-
-Note that while the econometrical "diff-in-diff" analysis is a special case of this, this Diff-in-Diff refers to the more general concept of an
-interaction and testing comparisons between comparisons.
-
-#### Example
-
-We continue with the sex-by-group interaction, asking whether the gender differences (the first comparison) differ by group (the second comparison).
-
-Estimating the gender difference within each group shows us, for example, that in group 1, the gender difference is 21.6 and in group 2, the gender
-difference is 16.8. Therefore the diff-in-diff estimate should be -4.8, which we see both in the regression output (`2#female` or `group2:sexfemale`)
-as well as in the actual diff-in-diff estimates.
+```{r child = 'discussion_markdown/diff_in_diff.Rmd'}
+```
 
 Column {.tabset}
 -------------------------------------
@@ -411,25 +342,8 @@ Column {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-### Plotting
-
-Plotting the results from marginal means and slopes, most commonly exemplified in interactions plots, is where the differences between Stata and R
-start to show. Stata can plot the results of any `margins` call, with varying levels of usefulness. For each particular variation of the plot, we may
-need to find a separate way to plot it in R.
-
-Interaction plots involved plotting the marginal means over several values of two (or more) predictor variables to examine the interaction in more
-detail. One predictor is plotted along the X-axis; the other predictor(s) are used to produce multiple lines. If the secondary predictor(s) are
-categorical, usually one line is plotted per group; if the secondary predictor(s) is continuous, then lines are drawn at several meaningful values of
-the predictor.
-
-#### Example
-
-Here we again model the interaction of group with age. From the regression coefficients and even the marginal means, it's hard to really identify the
-full pattern. However, looking at the plots, we can see that amongst younger individuals, group 1 has the highest predicted outcome, whereas that
-reverses amongst the elderly with group 1 having the lowest predicted outcome, or at least no difference than the other groups.
-
-Another way to interpret the plot would be that we see a decline in the outcome as individuals age, though the decline is more sharp in group 1 than
-the other groups.
+```{r child = 'discussion_markdown/plotting.Rmd'}
+```
 
 Code {.tabset}
 -------------------------------------

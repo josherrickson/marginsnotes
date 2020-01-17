@@ -1,0 +1,23 @@
+### Pairwise Comparisons of Categorical Variables
+
+Estimating marginal means and slopes is very convenient, but usually we'll require addressing a specific research question determining whether two
+marginal means or slopes are statistically distinguishable. We saw that marginal means for categorical variables are simple functions of the
+regressino coefficients, so testing for equality between groups is eqiuvalent to testing for whether the model found a difference between groups.
+
+To test for these differences, we'll be obtaining all pairwise differences.
+
+Keeping track of the direction of these differences can be cumbersome; I'd recommend looking at both marginal means and pairwise comparisons to keep
+the directionality straight.
+
+#### Example
+
+We return to our simple model with a single 3-level predictor. In the regression model, the coefficients on group 2 and group 3 are actually exactly
+what we want, however, note that the comparison between groups 2 and 3 is not represented. This gap grows exponentially as the number of groups
+increases; with 4 groups, we see 3 of the 6 possible pairwise comparisons, and with 6 groups we see only 4 of the 15 possible pairwise comparisons.
+
+In the pairwise comparisons output, we see the 2 vs 1 and 3 vs 1 comparisons replicated, as well as the comparison of 2 versus 3. From here we can
+interpret that group 3 is statistically distinguishable from the other groups.
+
+Note that you can get seemingly contradictory results - group A is statistically distinguishable from B, B is statistically distinguishable from C,
+but A and C are not statistically distinguishable. These results are not incorrect, and often occur when group B's marginal mean is midway between A
+and C.

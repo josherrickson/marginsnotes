@@ -1,0 +1,14 @@
+### Marginal Slopes
+
+In addition to the marginal means, we can also estimate the marginal slopes. In other words, the predicted average slope on a given predictor, when
+all other predictors are at their observed value. When the continuous variable whose marginal slope we estimate is *not* involved in an interaction,
+this simply recovers the estimates coefficient from the regression model. This will become more interesting when the continuous variable is involved
+in an interaction.
+
+(Note that although we interpret binary variables in a particular way, mathematically they are simply continuous variables [for continuous variables
+we often discuss "a 1-unit increase"; for a binary variable, a 1-unit increase is simply 1 versus 0]. Therefore we can in fact obtain marginal slopes
+for binary predictors, which is again the estimated coefficient and represents the average predicted difference between groups.)
+
+#### Example
+
+We see in this example that the estimated coefficient on the "age" continuous variable is -0.5; the estimated marginal slope for age is the same -0.5.

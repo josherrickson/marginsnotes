@@ -1,0 +1,16 @@
+### Diff-in-Diff
+
+Sometimes the comparison we're interested in is a comparison between comparisons. Imagine testing a treatment effect on multiple groups, and wanting
+to test whether the treatment effect differs per group. Essentially this is testing the interaction effect; however, if there are more than two
+groups, coefficients are only reported comparing to the baseline. Additionally, in non-linear regression, marginal effects may be desired.
+
+Note that while the econometrical "diff-in-diff" analysis is a special case of this, this Diff-in-Diff refers to the more general concept of an
+interaction and testing comparisons between comparisons.
+
+#### Example
+
+We continue with the sex-by-group interaction, asking whether the gender differences (the first comparison) differ by group (the second comparison).
+
+Estimating the gender difference within each group shows us, for example, that in group 1, the gender difference is 21.6 and in group 2, the gender
+difference is 16.8. Therefore the diff-in-diff estimate should be -4.8, which we see both in the regression output (`2#female` or `group2:sexfemale`)
+as well as in the actual diff-in-diff estimates.
