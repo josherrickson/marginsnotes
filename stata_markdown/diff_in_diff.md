@@ -21,3 +21,5 @@ margins {sex +1 -1}#{group +1 -1 0} {sex +1 -1}#{group +1 0 -1} {sex +1 -1}#{gro
 ~~~~
 
 Here the `{variable # # #}` notation defines a contrast - the values correspond to a linear equation for the levels. E.g. if we wanted to test `male = female`, or `male - female = 0`, we could write this as `(+1)male + (-1)female = 0`, therefore the contrast is `+1 -1` (in `sex`, male is the lowest level, female is the higher level). For group, we want to compare each pair of groups, so `group1 = group2` is equivalent to `(+1)group1 + (-1)group2 + (0)group3 = 0`, whose contrast is `+1 -1 0`.
+
+If you wanted a diff-in-diff-in-diff estimate (e.g. say you've got males and females, and some undergo each of treatment 0 and treatment 1, and you want to test whether the difference in pre-post changes amongst men is significantly different than the difference in pre-post changes amongst women), you can run something like `margins sex#treatment, dydx(prepost) contrast(pv nowald)`.
