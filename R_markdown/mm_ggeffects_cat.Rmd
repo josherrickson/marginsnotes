@@ -1,6 +1,6 @@
 ```{r}
 summary(mod1 <- lm(y ~ group, data = m))
-ggeffects::ggeffect(mod1, "group")
+ggeffect(mod1, "group")
 ```
 
-Note that we could have run that as `ggeffects::ggeffect(mod1, ~ group)`, with a formula. However, when we later want to specify certain values of the predictors, we need to use the character version, so I stick with it here.
+Note that we could have run that as `ggeffect(mod1, ~ group)`, with a formula. However, when we later want to specify certain values of the predictors, we need to use the character version, so I stick with it here.

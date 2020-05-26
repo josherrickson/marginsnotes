@@ -2,7 +2,7 @@ The `haven` package is used to read the data from Stata into R.
 
 ```{r}
 library(haven)
-m <- haven::read_dta("http://www.stata-press.com/data/r15/margex.dta")
+m <- read_dta("http://www.stata-press.com/data/r15/margex.dta")
 m <- data.frame(m)
 m$sex <- as_factor(m$sex)
 m$group <- as_factor(m$group)

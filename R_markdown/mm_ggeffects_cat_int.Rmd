@@ -1,5 +1,5 @@
 
 ```{r}
 summary(mod1 <- lm(y ~ sex*group, data = m))
-ggeffects::ggeffect(mod1, c("group", "sex"))
+ggeffect(mod1, c("group", "sex"))
 ```

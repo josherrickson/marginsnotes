@@ -1,4 +1,4 @@
 ```{r}
 summary(mod1 <- lm(y ~ group*age, data = m))
-pairs(emmeans::emtrends(mod1, ~ group, var = "age"), adjust = "none")
+pairs(emtrends(mod1, ~ group, var = "age"), adjust = "none")
 ```

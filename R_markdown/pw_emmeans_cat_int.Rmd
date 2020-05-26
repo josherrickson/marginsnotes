@@ -1,6 +1,6 @@
 ```{r}
 summary(mod1 <- lm(y ~ group*sex, data = m))
-pairs(emmeans::emmeans(mod1, ~ sex*group), adjust = "none")
+pairs(emmeans(mod1, ~ sex*group), adjust = "none")
 ```
 
 The `adjust = "none"` argument skips any multiple comparisons correction. This is done to obtain the same results as the regression coefficients. If
@@ -10,7 +10,7 @@ This produces a lot of comparisons; if we only cared about the comparisons one w
 output to these results.
 
 ```{r}
-emmeans::contrast(emmeans::emmeans(mod1, ~ sex | group), "pairwise")
+contrast(emmeans(mod1, ~ sex | group), "pairwise")
 ```
 
 Note that the results are identical, it's just a nicer output.

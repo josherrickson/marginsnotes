@@ -3,8 +3,8 @@ examined at each unique level (so don't put a continuous variable there!).
 
 ```{r}
 summary(mod1 <- lm(y ~ sex + age + distance, data = m))
-emmeans::emmeans(mod1, ~ age, at = list(age = c(30, 40)))
-test(emmeans::emmeans(mod1, ~ age, at = list(age = c(30, 40))))
-emmeans::emmeans(mod1, ~ age + distance, at = list(age = c(30, 40), distance = c(10,100)))
-emmeans::emmeans(mod1, ~ age + sex, at = list(age = c(30, 40)))
+emmeans(mod1, ~ age, at = list(age = c(30, 40)))
+test(emmeans(mod1, ~ age, at = list(age = c(30, 40))))
+emmeans(mod1, ~ age + distance, at = list(age = c(30, 40), distance = c(10,100)))
+emmeans(mod1, ~ age + sex, at = list(age = c(30, 40)))
 ```

@@ -1,8 +1,8 @@
 ```{r}
 summary(mod1 <- lm(y ~ group, data = m))
-emmeans::emmeans(mod1, ~ group)
+emmeans(mod1, ~ group)
 ```
 Note that by default, `emmeans` returns confidence intervals. If you prefer p-values, you can wrap the `emmeans` call in `test`:
 ```{r}
-test(emmeans::emmeans(mod1, ~ group))
+test(emmeans(mod1, ~ group))
 ```

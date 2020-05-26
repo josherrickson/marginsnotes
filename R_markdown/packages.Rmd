@@ -35,13 +35,6 @@ If you do not have those packages loaded, `ggeffects` will load them on demand (
 library(interactions)
 ```
 
-### A Note on R Syntax
-
-To make clear which function belongs to which library, I've used R's [double
-colon](https://stat.ethz.ch/R-manual/R-devel/library/base/html/ns-dblcolon.html) notation to be explicit. You do not need to include
-these. E.g. `library::function()` can be run simply as `function()`. There's a bit of possible confusion in that the workhorse function `emmeans`,
-belongs to the "emmeans" package, so `emmeans::emmeans` can be run as just `emmeans` to the right of the `::`.
-
 ### Software Versions
 
 This document was last compiled using `r system("egrep 'Stata.*[0-9.]{4}' /Applications/Stata/StataSE.app/Contents/Info.plist | awk -F '>' '{print $2}' | awk -F '<' '{print $1}'", intern = TRUE)` and R `r getRversion()`.
