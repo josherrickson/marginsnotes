@@ -1,4 +1,5 @@
 ```{r}
 summary(mod1 <- lm(y ~ sex*age, data = m))
 emmeans::emtrends(mod1, ~ sex, var = "age")
+test(emmeans::emtrends(mod1, ~ sex, var = "age"))
 ```

@@ -2,3 +2,7 @@
 summary(mod1 <- lm(y ~ sex + age, data = m))
 emmeans::emtrends(mod1, ~ 1, var = "age")
 ```
+To attach a p-value, wrap the call in the `test` function:
+```{r}
+test(emmeans::emtrends(mod1, ~ 1, var = "age"))
+```
