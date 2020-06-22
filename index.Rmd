@@ -357,3 +357,24 @@ Code {.tabset}
 
 ```{r child = 'R_markdown/plotting_interactions.Rmd'}
 ```
+
+# Odds Ratios {data-navmenu="Miscellaneous"}
+
+Sidebar {.sidebar}
+-------------------------------------
+
+```{r child = 'discussion_markdown/oddsratios.Rmd'}
+```
+
+Code {.tabset}
+-------------------------------------
+
+### Stata
+
+```{r child = 'oddsratios.Rmd'}
+```
+
+### R (`interactions`)
+
+```{r child = 'R_markdown/oddsratios.Rmd'}
+```
