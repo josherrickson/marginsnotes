@@ -358,7 +358,7 @@ Code {.tabset}
 ```{r child = 'R_markdown/plotting_interactions.Rmd'}
 ```
 
-# Odds Ratios {data-navmenu="Miscellaneous"}
+# Odds \& Odds Ratios {data-navmenu="Miscellaneous"}
 
 Sidebar {.sidebar}
 -------------------------------------

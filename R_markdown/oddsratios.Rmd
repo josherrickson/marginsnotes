@@ -1,1 +1,5 @@
-To-do.
+```{r}
+exp(summary(mod1 <- glm(yc ~ group, data = m, family = "binomial"))$coef)
+```
+
+To-do

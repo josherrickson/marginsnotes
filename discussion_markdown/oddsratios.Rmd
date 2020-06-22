@@ -1,9 +1,22 @@
-### Odds Ratios
+### Odds \& Odds Ratios
 
 Logistic regression model coefficients are log-odds, and are usually represented by odds ratios. While all the code given in this document work with
 logistic models, the marginal effects are on the probability scale. That is, you are obtaining marginal predicted probability. For example, consider a
 model with a binary outcome and a binary predictor. From the regression results, you could obtain an odds ratio describing the increase in odds of a
 positive outcome when moving from group 0 to group 1, but the marginal results would estimate the probability of a positive outcome in each group.
 
-While I would argue that predicted probabilites are more intepretable than odds ratios anyways, there may be scenarios where you would want to obtain
-odds ratios. In particular, for a categorical predictor, you might wants odds ratios between each pair of levels.
+While I would argue that predicted probabilities are more interpretable than odds ratios anyways, there may be scenarios where you would want to obtain
+odds and odds ratios. In particular, for a categorical predictor, you might want to obtain the odds for each level, as well as odds ratios between
+each pair of levels.
+
+#### Example
+
+The logistic regression model has the 3-level categorical predictor. Since group 1 is the reference category, we obtain from this model:
+
+- The odds in group 1, in the intercept (`_con`) row: .371
+- The odds ratio between groups 2 and 1, in the group 2 row: .823.
+- The odds ratio between groups 3 and 1, in the group 3 row: .674.
+
+The marginal odds give us the odds in each group at .371 in group 1 (the same as obtained in the model results), .306 in group 2, and .250 in group 3.
+
+The marginal odds ratios gives us .823 for 2 vs 1 and .674 for 3 vs 1 (the same as obtained in the model results), as well as .819 for 3 vs 2.
