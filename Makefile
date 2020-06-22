@@ -1,6 +1,7 @@
 md=$(shell find stata_markdown -name "*.md")
 Stata_Rmd=$(md:.md=.Rmd)
 R_Rmd=$(shell find R_markdown -name "*.Rmd")
+Discuss_Rmd=$(shell find discussion_markdown -name "*.Rmd")
 
 stata_markdown/%.Rmd: stata_markdown/%.md
 	@echo "$< -> $@"
@@ -17,7 +18,7 @@ stata_markdown/%.Rmd: stata_markdown/%.md
 # This line makes all links open in new windows.
 	@sed -i '' 's|href="|target="_blank" href="|g' $@
 
-index.html: index.Rmd $(Stata_Rmd) $(R_Rmd)
+index.html: index.Rmd $(Stata_Rmd) $(R_Rmd) $(Discuss_Rmd)
 	@echo "$< -> $@"
 #	Get a list of Rmd files; we'll be temporarily copying them to the main directory
 	@$(eval TMPPATH := $(shell find stata_markdown -name "*.Rmd"))
