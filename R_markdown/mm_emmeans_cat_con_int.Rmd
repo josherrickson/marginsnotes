@@ -2,5 +2,5 @@
 summary(mod1 <- lm(y ~ sex*age, data = m))
 emmeans(mod1, ~ age, at = list(age = c(30, 40)))
 test(emmeans(mod1, ~ age, at = list(age = c(30, 40))))
-emmeans(mod1, ~ age + sex, at = list(age = c(30, 40)))
+test(emmeans(mod1, ~ age + sex, at = list(age = c(30, 40))))
 ```
