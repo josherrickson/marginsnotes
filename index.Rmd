@@ -358,6 +358,17 @@ Code {.tabset}
 ```{r child = 'R_markdown/plotting_interactions.Rmd'}
 ```
 
+### R (`emmeans`)
+
+```{r child = 'R_markdown/plotting_emmeans.Rmd'}
+```
+
+### R (`ggeffects`)
+
+```{r child = 'R_markdown/plotting_ggeffects.Rmd'}
+```
+
+
 # Odds \& Odds Ratios {data-navmenu="Miscellaneous"}
 
 Sidebar {.sidebar}

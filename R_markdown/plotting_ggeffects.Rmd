@@ -1,0 +1,5 @@
+
+```{r}
+summary(mod1 <- lm(y ~ group*age, data = m))
+plot(ggeffect(mod1, c("age [20, 30, 40, 50, 60]", "group")))
+```

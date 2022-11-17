@@ -1,0 +1,5 @@
+
+```{r}
+summary(mod1 <- lm(y ~ group*age, data = m))
+emmip(mod1, group ~ age, at = list(age = c(20, 30, 40, 50, 60)), CIs = TRUE)
+```
