@@ -68,7 +68,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'data.Rmd'}
+```{r child = 'stata_markdown/data.Rmd'}
 ```
 
 ### R Data
@@ -94,7 +94,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'mm_cat.Rmd'}
+```{r child = 'stata_markdown/mm_cat.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -125,7 +125,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'mm_cat_int.Rmd'}
+```{r child = 'stata_markdown/mm_cat_int.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -156,7 +156,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'mm_con.Rmd'}
+```{r child = 'stata_markdown/mm_con.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -187,7 +187,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'mm_cat_con_int.Rmd'}
+```{r child = 'stata_markdown/mm_cat_con_int.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -213,7 +213,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'ms_con.Rmd'}
+```{r child = 'stata_markdown/ms_con.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -240,7 +240,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'ms_con_int.Rmd'}
+```{r child = 'stata_markdown/ms_con_int.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -266,7 +266,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'pw_cat.Rmd'}
+```{r child = 'stata_markdown/pw_cat.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -287,7 +287,7 @@ Column {.tabset}
 
 ### Stata
 
-```{r child = 'pw_cat_int.Rmd'}
+```{r child = 'stata_markdown/pw_cat_int.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -308,7 +308,7 @@ Column {.tabset}
 
 ### Stata
 
-```{r child = 'pw_cat_con_int.Rmd'}
+```{r child = 'stata_markdown/pw_cat_con_int.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -329,7 +329,7 @@ Column {.tabset}
 
 ### Stata
 
-```{r child = 'diff_in_diff.Rmd'}
+```{r child = 'stata_markdown/diff_in_diff.Rmd'}
 ```
 
 ### R (`emmeans`)
@@ -350,7 +350,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'plotting.Rmd'}
+```{r child = 'stata_markdown/plotting.Rmd'}
 ```
 
 ### R (`interactions`)
@@ -382,7 +382,7 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'oddsratios.Rmd'}
+```{r child = 'stata_markdown/oddsratios.Rmd'}
 ```
 
 ### R (`interactions`)
