@@ -1,16 +1,19 @@
 ```{r}
-summary(mod1 <- lm(y ~ group*sex, data = m))
-pairs(emmeans(mod1, ~ sex*group), adjust = "none")
+summary(mod1 <- lm(y ~ class*sex, data = m))
+pairs(emmeans(mod1, ~ sex*class), adjust = "none")
 ```
 
-The `adjust = "none"` argument skips any multiple comparisons correction. This is done to obtain the same results as the regression coefficients. If
-you'd prefer a more ANOVA post-hoc approach, there are other options for `adjust`, see `?emmeans::contrast` for details.
+The `adjust = "none"` argument skips any multiple comparisons correction. This
+is done to obtain the same results as the regression coefficients. If you'd
+prefer a more ANOVA post-hoc approach, there are other options for `adjust`, see
+`?emmeans::contrast` for details.
 
-This produces a lot of comparisons; if we only cared about the comparisons one way (e.g. gender differences within each group), we can restrict our
-output to these results.
+This produces a lot of comparisons; if we only cared about the comparisons one
+way (e.g. gender differences within each class), we can restrict our output to
+these results.
 
 ```{r}
-contrast(emmeans(mod1, ~ sex | group), "pairwise")
+contrast(emmeans(mod1, ~ sex | class), "pairwise")
 ```
 
 Note that the results are identical, it's just a nicer output.

@@ -1,0 +1,5 @@
+
+```{r}
+summary(mod1 <- lm(y ~ sex*class, data = m))
+predictions(mod1, datagrid(sex = c("male", "female"), class = 1:3))
+```

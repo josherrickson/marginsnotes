@@ -1,4 +1,7 @@
-Note the particular syntax for specifying particular values - a quoted string containing the name of the variable, followed by a list in square brackets of comma-separated values (a single value would be just `[4]`). Whitespace is ignored.
+Note the particular syntax for specifying particular values - a quoted string
+containing the name of the variable, followed by a list in square brackets of
+comma-separated values (a single value would be just `[4]`). Whitespace is
+ignored.
 
 ```{r}
 summary(mod1 <- lm(y ~ sex + age + distance, data = m))

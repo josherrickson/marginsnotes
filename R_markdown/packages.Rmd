@@ -43,6 +43,12 @@ If you do not have those packages loaded, `ggeffects` will load them on demand
 package installed, `ggeffects` will instead produce a warning, so keep an eye
 out for those and install packages as needed.
 
+### `marginaleffects`
+
+```{r}
+library(marginaleffects)
+```
+
 ### `interactions`
 
 ```{r}

@@ -1,6 +1,6 @@
 
 ```{r}
-summary(mod1 <- lm(y ~ sex*group, data = m))
-emmeans(mod1, ~ group + sex)
-test(emmeans(mod1, ~ group + sex))
+summary(mod1 <- lm(y ~ sex*class, data = m))
+emmeans(mod1, ~ class + sex)
+test(emmeans(mod1, ~ class + sex))
 ```

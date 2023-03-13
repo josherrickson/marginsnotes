@@ -1,6 +1,6 @@
 ```{r}
-summary(mod1 <- lm(y ~ group, data = m))
-pairs(emmeans(mod1, ~ group), adjust = "none")
+summary(mod1 <- lm(y ~ class, data = m))
+pairs(emmeans(mod1, ~ class), adjust = "none")
 ```
 
 The `adjust = "none"` argument skips any multiple comparisons

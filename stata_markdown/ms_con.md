@@ -1,6 +1,7 @@
 ~~~~
 <<dd_do: quiet>>
 webuse margex
+rename group class
 <</dd_do>>
 ~~~~
 

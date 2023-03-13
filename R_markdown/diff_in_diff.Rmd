@@ -1,5 +1,5 @@
 ```{r}
-summary(mod1 <- lm(y ~ group*sex, data = m))
-contrast(emmeans(mod1, ~ sex | group), "pairwise")
-pairs(pairs(emmeans(mod1, ~ sex|group)), by = NULL, adjust = "none")
+summary(mod1 <- lm(y ~ class*sex, data = m))
+contrast(emmeans(mod1, ~ sex | class), "pairwise")
+pairs(pairs(emmeans(mod1, ~ sex | class)), by = NULL, adjust = "none")
 ```

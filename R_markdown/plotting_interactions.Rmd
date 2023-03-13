@@ -1,5 +1,5 @@
 
 ```{r}
-summary(mod1 <- lm(y ~ group*age, data = m))
-interact_plot(mod1, pred = age, modx = group, interval = TRUE)
+summary(mod1 <- lm(y ~ class*age, data = m))
+interact_plot(mod1, pred = age, modx = class, interval = TRUE)
 ```

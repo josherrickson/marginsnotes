@@ -5,6 +5,10 @@ library(haven)
 m <- read_dta("http://www.stata-press.com/data/r15/margex.dta")
 m <- data.frame(m)
 m$sex <- as_factor(m$sex)
-m$group <- as_factor(m$group)
+names(m)[names(m) == "group"] <- "class"
+m$class <- as_factor(m$class)
 head(m)
 ```
+
+The `marginaleffects` package doesn't like a variable being named "group", so we
+rename it.

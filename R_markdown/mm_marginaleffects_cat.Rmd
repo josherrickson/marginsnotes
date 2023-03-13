@@ -1,7 +1,7 @@
 ```{r}
-summary(mod1 <- lm(y ~ group, data = m))
-predictions(mod1, datagrid(group = unique))
-marginalmeans(mod1, "group")
+summary(mod1 <- lm(y ~ class, data = m))
+predictions(mod1, datagrid(class = unique))
+marginalmeans(mod1, "class")
 ```
 
 The `marginalmeans()` function is provided as a direct translation for `emmeans`
@@ -12,23 +12,23 @@ The `datagrid()` function can be frustrating - putting in "wrong" values
 produces no error/warning and just produces unexpected results. For example,
 
 ```{r}
-predictions(mod1, datagrid(group = c(1, 2, 3)))
+predictions(mod1, datagrid(class = c(1, 2, 3)))
 ```
 
-is an alternative to `group = unique` to specify the levels. (NOTE: These are
-the "levels" not the values - it just happens that `group` has the same. See
-[below](#factor-labels) for what happens when it differs.) We can specify a
-subset of levels as well.
+is an alternative to `class = unique` to specify the levels. (NOTE: These are
+the "levels" not the values - it just happens that `class` has the same. See
+below for what happens when it differs.) We can specify a subset of levels as
+well.
 
 ```{r}
-predictions(mod1, datagrid(group = c(1, 2)))
+predictions(mod1, datagrid(class = c(1, 2)))
 ```
 
 However, what if we included a level that wasn't found in the model? For
-example, if we thought `group` took on values 0-2 instead of 1-3?
+example, if we thought `class` took on values 0-2 instead of 1-3?
 
 ```{r}
-predictions(mod1, datagrid(group = c(0, 1, 2)))
+predictions(mod1, datagrid(class = c(0, 1, 2)))
 ```
 
 In this case, the `newdata` argument (the second argument which `datagrid()`'s
@@ -42,7 +42,7 @@ those.
 
 ```{r}
 mod2 <- lm(y ~ sex, data = m)
-summary(m$sex)
+str(m$sex)
 predictions(mod2, datagrid(sex = c(1,2)))
 predictions(mod2, datagrid(sex = c("male", "female")))
 ```
