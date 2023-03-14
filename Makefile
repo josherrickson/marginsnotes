@@ -1,5 +1,7 @@
 md=$(shell find stata_markdown -name "*.md")
 Stata_Rmd=$(md:.md=.Rmd)
+R_Rmd=$(shell find R_markdown -name "*.Rmd")
+Discuss_Rmd=$(shell find discussion_markdown -name "*.Rmd")
 
 stata_markdown/%.Rmd: stata_markdown/%.md
 	@echo "$< -> $@"
