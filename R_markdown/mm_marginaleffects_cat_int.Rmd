@@ -1,5 +1,10 @@
 
 ```{r}
 summary(mod1 <- lm(y ~ sex*class, data = m))
-predictions(mod1, datagrid(sex = c("male", "female"), class = 1:3))
+predictions(mod1, datagrid(sex = unique, class = unique))
+marginalmeans(mod1, cross = TRUE)
 ```
+
+The `marginalmeans()` function is provided as a direct translation for `emmeans`
+users. The `predictions()` function will be used more commonly so I recommend
+becoming familiar with that.
