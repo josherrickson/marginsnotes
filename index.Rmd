@@ -179,6 +179,11 @@ Code {.tabset}
 ```{r child = 'R_markdown/mm_ggeffects_con.Rmd'}
 ```
 
+### R (`marginaleffects`)
+
+```{r child = 'R_markdown/mm_marginaleffects_con.Rmd'}
+```
+
 ### Math
 
 ```{r child = 'math_markdown/mm_con_math.Rmd'}

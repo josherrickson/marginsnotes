@@ -1,0 +1,15 @@
+```{r}
+summary(mod1 <- lm(y ~ sex + age + distance, data = m))
+predictions(mod1, by = "age", newdata = datagridcf(age = c(30, 40)))
+```
+Note the inclusion of `age` twice, once in the `by=` argument and once inside the `newdata=` argument. Excluding either of those will produce unexpected results.
+
+Also, the [`datagridcf()`](https://vincentarelbundock.github.io/marginaleffects/reference/datagrid.html) function produces a counter-factual set of datasets similar to how Stata works. Using `datagrid()` here would not work.
+
+
+```{r}
+predictions(mod1, by = c("age", "distance"),
+            newdata = datagridcf(age = c(30, 40),
+                                 distance = c(10, 100)))
+predictions(mod1, newdata = datagrid(age = c(30, 40), sex = unique))
+```
