@@ -8,8 +8,7 @@ The `marginalmeans()` function is provided as a direct translation for `emmeans`
 users. The `predictions()` function will be used more commonly so I recommend
 becoming familiar with that.
 
-The `datagrid()` function can be frustrating - putting in "wrong" values
-produces no error/warning and just produces unexpected results. For example,
+The `datagrid()` function can also take in values. For example,
 
 ```{r}
 predictions(mod1, datagrid(class = c(1, 2, 3)))
@@ -24,23 +23,12 @@ well.
 predictions(mod1, datagrid(class = c(1, 2)))
 ```
 
-However, what if we included a level that wasn't found in the model? For
-example, if we thought `class` took on values 0-2 instead of 1-3?
-
-```{r}
-predictions(mod1, datagrid(class = c(0, 1, 2)))
-```
-
-In this case, the `newdata` argument (the second argument which `datagrid()`'s
-results are passed to) is ignored without warning, and we get identical results
-to if we'd just called `predictions(mod1)`.
-
 #### Factor labels
 
 If your factor has labels which are not just the values, you need to refer to
 those.
 
-```{r}
+```{r, error = TRUE}
 mod2 <- lm(y ~ sex, data = m)
 str(m$sex)
 predictions(mod2, datagrid(sex = c(1,2)))
