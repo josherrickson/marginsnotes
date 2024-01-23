@@ -352,7 +352,7 @@ Column {.tabset}
 ```{r child = 'R_markdown/diff_in_diff.Rmd'}
 ```
 
-# Plotting
+# Interaction Plots {data-navmenu="Plotting"}
 
 Sidebar {.sidebar}
 -------------------------------------
@@ -365,24 +365,36 @@ Code {.tabset}
 
 ### Stata
 
-```{r child = 'stata_markdown/plotting.Rmd'}
+```{r child = 'stata_markdown/interaction_plot.Rmd'}
 ```
 
 ### R (`interactions`)
 
-```{r child = 'R_markdown/plotting_interactions.Rmd'}
+```{r child = 'R_markdown/interaction_plot_interactions.Rmd'}
 ```
 
 ### R (`emmeans`)
 
-```{r child = 'R_markdown/plotting_emmeans.Rmd'}
+```{r child = 'R_markdown/interaction_plot_emmeans.Rmd'}
 ```
 
 ### R (`ggeffects`)
 
-```{r child = 'R_markdown/plotting_ggeffects.Rmd'}
+```{r child = 'R_markdown/interaction_plot_ggeffects.Rmd'}
 ```
 
+# Diff-in-Diff/Interrupted Time Series {data-navmenu="Plotting"}
+
+Sidebar {.sidebar}
+-------------------------------------
+
+```{r child = ''}
+```
+
+Code {.tabset}
+-------------------------------------
+
+### Stata
 
 # Odds \& Odds Ratios {data-navmenu="Miscellaneous"}
 
