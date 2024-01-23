@@ -1,0 +1,23 @@
+### Interrupted Time Series and Diff-in-Diff plots
+
+These plots differ from traditional interaction plots in that the range of each
+individual trajectory is restricted. While this can occasionally be of interest
+in traditional interaction plots (say we're interacting gender by height; we may
+wish to restrict the range of height for women to below 6', but allow the range
+of men to go up to 6'6"), it's always of interest in interrupted time series or
+differences-in-differences plots. If we did not account for this, all lines
+would be plotted over the entire range.
+
+#### Example
+
+In the first example, we generate a dummy variable those `age` above 40, the
+interact it with `age`. This allows us to estimate a trend on `age` for those
+below 40, and a separate trend for those above 40. This is traditionally called
+an "interrupted time series", though the idea may be used in other situations
+where there's an interaction of any continuous variableq (which may or may not
+represent time in some fashion) and a categorical variable dividing the
+continuous variable into separate "sections".
+
+In the second example, a differences-in-differences model is tested by adding an
+additional interaction with `class`. This allows estimating a separate pair of
+trends for each class.

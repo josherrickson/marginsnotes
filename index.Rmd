@@ -21,38 +21,52 @@ Sidebar {.sidebar}
 
 ### Layout
 
-On the left sidebar for each page, you'll find a (mostly) software-agnostic discussion of the topic at hand.
+On the left sidebar for each page, you'll find a (mostly) software-agnostic
+discussion of the topic at hand.
 
-The main panels of each page consist of a tabbed series of pages with the code and output in the noted language. On some pages, there will be an
-additional Math tab with mathematical details.
+The main panels of each page consist of a tabbed series of pages with the code
+and output in the noted language. On some pages, there will be an additional
+Math tab with mathematical details.
 
 Column
 -------------------------------------
 
 ### Marginal Effects
 
-After running a regression model of some sort, the common way of interpreting the relationships between predictors and the outcome is by interpreting
-the regression coefficients. In many situations these interpretations are straightforward, however, in some settings the interpretations can be
-tricky, or the coefficients can simply not be interpreted.
+After running a regression model of some sort, the common way of interpreting
+the relationships between predictors and the outcome is by interpreting the
+regression coefficients. In many situations these interpretations are
+straightforward, however, in some settings the interpretations can be tricky, or
+the coefficients can simply not be interpreted.
 
-These complications arise most commonly when a model involves an interaction or moderation. In these sort of models, interpretation of the
-coefficients requires special care due to the relationship between the various interacted predictors, and the set of information obtainable from the
-coefficients is often limited without resorting to significant algebra.
+These complications arise most commonly when a model involves an interaction or
+moderation. In these sort of models, interpretation of the coefficients requires
+special care due to the relationship between the various interacted predictors,
+and the set of information obtainable from the coefficients is often limited
+without resorting to significant algebra.
 
-Marginal effects offer an improvement over simple coefficient interpretation. **Marginal means** allow you to estimate the average response under a
-set of conditions; e.g. the average response for each racial group, or the average response when age and weight are at certain values.
+Marginal effects offer an improvement over simple coefficient interpretation.
+**Marginal means** allow you to estimate the average response under a set of
+conditions; e.g. the average response for each racial group, or the average
+response when age and weight are at certain values.
 
-**Marginal slopes** estimate the slope between a predictor and the outcome when other variables are at some specific value; e.g. the average slope on
-age within each gender, or the average slope on age when weight is at certain values.
+**Marginal slopes** estimate the slope between a predictor and the outcome when
+other variables are at some specific value; e.g. the average slope on age within
+each gender, or the average slope on age when weight is at certain values.
 
-In either case, in addition to estimating these marginal effects, we can easily test hypotheses of equality between them via **pairwise
-comparisons**. For example, is the average response different by ethnicity, or is the slope on age different between genders.
+In either case, in addition to estimating these marginal effects, we ;can easily
+test hypotheses of equality between them via **pairwise comparisons**. For
+example, is the average response different by ethnicity, or is the slope on age
+different between genders.
 
-If you are familiar with interpreting regression coefficients, and specifically interactions, you may have some idea of how to start addressing all
-the above examples. However, to complete answer these research questions would require more than simply a table of regression coefficients. With
-marginal effects, one additional set of results can address all these questions.
+If you are familiar with interpreting regression coefficients, and specifically
+interactions, you may have some idea of how to start addressing all the above
+examples. However, to complete answer these research questions would require
+more than simply a table of regression coefficients. With marginal effects, one
+additional set of results can address all these questions.
 
-Finally, marginal effect estimation is a step towards creating informative visualizations of relationships such as interaction plots.
+Finally, marginal effect estimation is a step towards creating informative
+visualizations of relationships such as interaction plots.
 
 
 # Data and Libraries
@@ -357,7 +371,7 @@ Column {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-```{r child = 'discussion_markdown/plotting.Rmd'}
+```{r child = 'discussion_markdown/interaction_plot.Rmd'}
 ```
 
 Code {.tabset}
@@ -388,13 +402,16 @@ Code {.tabset}
 Sidebar {.sidebar}
 -------------------------------------
 
-```{r child = ''}
+```{r child = 'discussion_markdown/diff_in_diff_plot.Rmd'}
 ```
 
 Code {.tabset}
 -------------------------------------
 
 ### Stata
+
+```{r child='stata_markdown/diff_in_diff_plot.Rmd'}
+```
 
 # Odds \& Odds Ratios {data-navmenu="Miscellaneous"}
 

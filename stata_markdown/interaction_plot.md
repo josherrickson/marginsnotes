@@ -8,7 +8,7 @@ rename group class
 ~~~~
 <<dd_do>>
 regress y i.class##c.age
-margins class, at(age = (20(10)60))
+margins class, at(age = (20 60))
 marginsplot, recastci(rarea)  ciopts(fcolor(%25) lcolor(%25))
 <</dd_do>>
 ~~~~
@@ -26,3 +26,28 @@ graph export "marginsplot.svg", replace
 ~~~~
 
 ![](marginsplot.svg)
+
+Due to this being a linear model as well as `age` entering linearly (as opposed
+to say quadratically), two points are sufficient to fit a line. If you fit a
+non-linear model (such as logistic regression) or allowed `age` to enter
+non-linearlly, you may want to add more points to the plot. There is a trade-off
+between speed (more points take longer to estimate) and smoothness of the
+resulting curve.
+
+~~~~
+<<dd_do>>
+regress y i.class##c.age##c.age
+margins class, at(age = (20(5)60))
+marginsplot, recastci(rarea)  ciopts(fcolor(%25) lcolor(%25)) recast(line)
+<</dd_do>>
+~~~~
+
+`recast(line)` removes the points to make the plot a bit cleaner.
+
+~~~~
+<<dd_do: quiet>>
+graph export "marginsplot2.svg", replace
+<</dd_do>>
+~~~~
+
+![](marginsplot2.svg)
