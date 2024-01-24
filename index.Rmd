@@ -111,17 +111,17 @@ Code {.tabset}
 ```{r child = 'stata_markdown/mm_cat.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/mm_emmeans_cat.Rmd'}
 ```
 
-### R (`ggeffects`)
+### R (**ggeffects**)
 
 ```{r child = 'R_markdown/mm_ggeffects_cat.Rmd'}
 ```
 
-### R (`marginaleffects`)
+### R (**marginaleffects`**)
 
 ```{r child = 'R_markdown/mm_marginaleffects_cat.Rmd'}
 ```
@@ -147,17 +147,17 @@ Code {.tabset}
 ```{r child = 'stata_markdown/mm_cat_int.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/mm_emmeans_cat_int.Rmd'}
 ```
 
-### R (`ggeffects`)
+### R (**ggeffects**)
 
 ```{r child = 'R_markdown/mm_ggeffects_cat_int.Rmd'}
 ```
 
-### R (`marginaleffects`)
+### R (**marginaleffects`**)
 
 ```{r child = 'R_markdown/mm_marginaleffects_cat_int.Rmd'}
 ```
@@ -183,17 +183,17 @@ Code {.tabset}
 ```{r child = 'stata_markdown/mm_con.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/mm_emmeans_con.Rmd'}
 ```
 
-### R (`ggeffects`)
+### R (**ggeffects**)
 
 ```{r child = 'R_markdown/mm_ggeffects_con.Rmd'}
 ```
 
-### R (`marginaleffects`)
+### R (**marginaleffects`**)
 
 ```{r child = 'R_markdown/mm_marginaleffects_con.Rmd'}
 ```
@@ -219,12 +219,12 @@ Code {.tabset}
 ```{r child = 'stata_markdown/mm_cat_con_int.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/mm_emmeans_cat_con_int.Rmd'}
 ```
 
-### R (`ggeffects`)
+### R (**ggeffects**)
 
 ```{r child = 'R_markdown/mm_ggeffects_cat_con_int.Rmd'}
 ```
@@ -245,7 +245,7 @@ Code {.tabset}
 ```{r child = 'stata_markdown/ms_con.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/ms_emmeans_con.Rmd'}
 ```
@@ -272,7 +272,7 @@ Code {.tabset}
 ```{r child = 'stata_markdown/ms_con_int.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/ms_emmeans_con_int.Rmd'}
 ```
@@ -298,7 +298,7 @@ Code {.tabset}
 ```{r child = 'stata_markdown/pw_cat.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/pw_emmeans_cat.Rmd'}
 ```
@@ -319,7 +319,7 @@ Column {.tabset}
 ```{r child = 'stata_markdown/pw_cat_int.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/pw_emmeans_cat_int.Rmd'}
 ```
@@ -340,7 +340,7 @@ Column {.tabset}
 ```{r child = 'stata_markdown/pw_cat_con_int.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/pw_emmeans_cat_con_int.Rmd'}
 ```
@@ -361,7 +361,7 @@ Column {.tabset}
 ```{r child = 'stata_markdown/diff_in_diff.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/diff_in_diff.Rmd'}
 ```
@@ -382,17 +382,17 @@ Code {.tabset}
 ```{r child = 'stata_markdown/interaction_plot.Rmd'}
 ```
 
-### R (`interactions`)
+### R (**interactions**)
 
 ```{r child = 'R_markdown/interaction_plot_interactions.Rmd'}
 ```
 
-### R (`emmeans`)
+### R (**emmeans**)
 
 ```{r child = 'R_markdown/interaction_plot_emmeans.Rmd'}
 ```
 
-### R (`ggeffects`)
+### R (**ggeffects**)
 
 ```{r child = 'R_markdown/interaction_plot_ggeffects.Rmd'}
 ```
@@ -411,6 +411,16 @@ Code {.tabset}
 ### Stata
 
 ```{r child='stata_markdown/diff_in_diff_plot.Rmd'}
+```
+
+### R (**emmeans**)
+
+```{r child = 'R_markdown/diff_in_diff_plot_emmeans.Rmd'}
+```
+
+### R (**marginaleffects**)
+
+```{r child = 'R_markdown/diff_in_diff_plot_marginaleffects.Rmd'}
 ```
 
 # Odds \& Odds Ratios {data-navmenu="Miscellaneous"}

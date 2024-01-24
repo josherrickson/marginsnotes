@@ -1,0 +1,19 @@
+
+```{r}
+m$above40 <- m$age > 40
+summary(mod1 <- lm(y ~ above40*age, data = m))
+```
+
+```{r}
+plot_predictions(mod1,
+                 by = "age",
+                 newdata = data.frame(age = c(20, 40, 40, 60),
+                                      above40 = c(FALSE, FALSE, TRUE, TRUE)))
+```
+
+
+The `newdata` argument is doing the heavy-lifting here; the `by` argument is
+specifying the x-axis.
+
+Note that you can also simply call `predictions(mod1, newdata = ...)` and plot
+the results manually, for maximum flexibility.

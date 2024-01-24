@@ -1,0 +1,24 @@
+
+```{r}
+m$above40 <- m$age > 40
+summary(mod1 <- lm(y ~ above40*age, data = m))
+```
+
+I do not currently know of a way to do this entirely within **emmeans** without
+resorting to manual plotting. If you do know a way to do it, please [submit an
+issue](https://github.com/josherrickson/marginsnotes/issues) or otherwise reach
+out to me!
+
+```{r}
+em_under <- emmeans(mod1, ~ age, at = list(age = c(20, 40), above40 = FALSE))
+em_above <- emmeans(mod1, ~ age, at = list(age = c(40, 60), above40 = TRUE))
+em_combined <- data.frame(rbind(em_under, em_above))
+em_combined$above40 <- c(FALSE, FALSE, TRUE, TRUE)
+ggplot(em_combined, aes(x = age, y = emmean, color = above40, group = above40)) +
+  geom_ribbon(aes(ymin = lower.CL, ymax = upper.CL, fill = above40), alpha = .2) +
+  geom_line(lwd = 2) +
+  scale_fill_manual(values = c("FALSE" = "blue", "TRUE" = "red"))  +
+  scale_color_manual(values = c("FALSE" = "blue", "TRUE" = "red")) +
+  xlab("Age") + ylab("Prediction") + theme(legend.position = "none")
+
+```
